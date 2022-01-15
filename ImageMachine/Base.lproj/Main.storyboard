@@ -40,6 +40,21 @@
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="82.366071428571431"/>
         </scene>
+        <!--Machine Data Detail View Controller-->
+        <scene sceneID="ZVO-uf-fyw">
+            <objects>
+                <viewController storyboardIdentifier="MachineDataDetailViewController" id="7Fe-Sc-IOJ" customClass="MachineDataDetailViewController" customModule="ImageMachine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zd8-u4-yVV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="obJ-Ho-c5s"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZeG-Cb-oHM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1768" y="82"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="vOf-Hm-Tug">
             <objects>

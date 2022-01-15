@@ -11,6 +11,8 @@ class ListMachineDataViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var viewModel = ListMachineDataViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavBar()
