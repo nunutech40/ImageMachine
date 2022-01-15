@@ -11,14 +11,19 @@ class ListMachineDataViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var viewModel = ListMachineDataViewModel()
+    var viewModel: ListMachineDataViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupInjection()
         self.setupNavBar()
         self.setupTable()
     }
-
+    
+    func setupInjection() {
+        let inject = Injection.init().provideRepository()
+        viewModel = ListMachineDataViewModel(repository: inject)
+    }
     
     func setupNavBar() {
         //let navBarItem

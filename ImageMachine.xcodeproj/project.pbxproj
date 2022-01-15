@@ -23,6 +23,8 @@
 		047A20B92792E7290091A002 /* MachineDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A20B82792E7290091A002 /* MachineDataEntity.swift */; };
 		0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D3192792F6CA00099048 /* CustomErr+Ext.swift */; };
 		0487D31C2792F88900099048 /* MachineDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D31B2792F88900099048 /* MachineDataRepository.swift */; };
+		048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C75B62793828700C7BF23 /* MachineDataMapper.swift */; };
+		048C75BA27938C6A00C7BF23 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C75B927938C6A00C7BF23 /* Injection.swift */; };
 		A19875ECE9594ABCB87AF702 /* Pods_ImageMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6700E878E394AF93A296B7EC /* Pods_ImageMachine.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		047A20B82792E7290091A002 /* MachineDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataEntity.swift; sourceTree = "<group>"; };
 		0487D3192792F6CA00099048 /* CustomErr+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomErr+Ext.swift"; sourceTree = "<group>"; };
 		0487D31B2792F88900099048 /* MachineDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataRepository.swift; sourceTree = "<group>"; };
+		048C75B62793828700C7BF23 /* MachineDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataMapper.swift; sourceTree = "<group>"; };
+		048C75B927938C6A00C7BF23 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		34AEABD3BFBF857632FD2FA2 /* Pods-ImageMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMachine.release.xcconfig"; path = "Target Support Files/Pods-ImageMachine/Pods-ImageMachine.release.xcconfig"; sourceTree = "<group>"; };
 		6700E878E394AF93A296B7EC /* Pods_ImageMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageMachine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1C8D2AB4BB110BC001BCAE /* Pods-ImageMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMachine.debug.xcconfig"; path = "Target Support Files/Pods-ImageMachine/Pods-ImageMachine.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,11 +87,11 @@
 		043070E52792647D00CABD8E /* ImageMachine */ = {
 			isa = PBXGroup;
 			children = (
-				0463429C2792BDE300044CE5 /* Extension */,
-				0463429B2792BDDC00044CE5 /* Helper */,
-				043070FE2792676900CABD8E /* Model */,
-				043070FD2792676100CABD8E /* ViewModel */,
-				043070FC2792675D00CABD8E /* View */,
+				048C75BE2793952800C7BF23 /* Presentation */,
+				048C75BC279394B400C7BF23 /* Domain */,
+				048C75BB279394AE00C7BF23 /* Data */,
+				048C75B827938C5800C7BF23 /* DI */,
+				048C75B42793825000C7BF23 /* Utils */,
 				043070E62792647D00CABD8E /* AppDelegate.swift */,
 				043070E82792647D00CABD8E /* SceneDelegate.swift */,
 				043070EC2792647D00CABD8E /* Main.storyboard */,
@@ -118,9 +122,6 @@
 		043070FE2792676900CABD8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				047A20B72792E7160091A002 /* Entity */,
-				047A20B32792E3C80091A002 /* LocalDataSource */,
-				047A20B42792E3D20091A002 /* Repository */,
 				047A20B12792DFEB0091A002 /* MachineData.swift */,
 			);
 			path = Model;
@@ -182,6 +183,67 @@
 				047A20B82792E7290091A002 /* MachineDataEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		048C75B42793825000C7BF23 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				048C75B52793826500C7BF23 /* Mapper */,
+				0463429B2792BDDC00044CE5 /* Helper */,
+				0463429C2792BDE300044CE5 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		048C75B52793826500C7BF23 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				048C75B62793828700C7BF23 /* MachineDataMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		048C75B827938C5800C7BF23 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				048C75B927938C6A00C7BF23 /* Injection.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		048C75BB279394AE00C7BF23 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				047A20B72792E7160091A002 /* Entity */,
+				047A20B32792E3C80091A002 /* LocalDataSource */,
+				047A20B42792E3D20091A002 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		048C75BC279394B400C7BF23 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				048C75BD2793950A00C7BF23 /* UseCase */,
+				043070FE2792676900CABD8E /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		048C75BD2793950A00C7BF23 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		048C75BE2793952800C7BF23 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				043070FD2792676100CABD8E /* ViewModel */,
+				043070FC2792675D00CABD8E /* View */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		1DDF2A355C2AB060B6ABC3B6 /* Pods */ = {
@@ -324,9 +386,11 @@
 				043070E72792647D00CABD8E /* AppDelegate.swift in Sources */,
 				047A20B22792DFEB0091A002 /* MachineData.swift in Sources */,
 				047A20B02792DF800091A002 /* ListMachineDataViewModel.swift in Sources */,
+				048C75BA27938C6A00C7BF23 /* Injection.swift in Sources */,
 				047A20B62792E3E30091A002 /* MachineDataLocaleDataSource.swift in Sources */,
 				0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */,
 				043070E92792647D00CABD8E /* SceneDelegate.swift in Sources */,
+				048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */,
 				043071042792696D00CABD8E /* MachineDataCell.swift in Sources */,
 				047A20AE2792DF180091A002 /* MachineDataDetailViewController.swift in Sources */,
 			);
