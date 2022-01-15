@@ -15,6 +15,7 @@
 		043070FB2792675700CABD8E /* ListMachineDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043070FA2792675700CABD8E /* ListMachineDataViewController.swift */; };
 		043071042792696D00CABD8E /* MachineDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043071022792696D00CABD8E /* MachineDataCell.swift */; };
 		043071052792696D00CABD8E /* MachineDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043071032792696D00CABD8E /* MachineDataCell.xib */; };
+		0463429E2792BE2000044CE5 /* MainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463429D2792BE2000044CE5 /* MainHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		043070FA2792675700CABD8E /* ListMachineDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMachineDataViewController.swift; sourceTree = "<group>"; };
 		043071022792696D00CABD8E /* MachineDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataCell.swift; sourceTree = "<group>"; };
 		043071032792696D00CABD8E /* MachineDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MachineDataCell.xib; sourceTree = "<group>"; };
+		0463429D2792BE2000044CE5 /* MainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,8 @@
 		043070E52792647D00CABD8E /* ImageMachine */ = {
 			isa = PBXGroup;
 			children = (
+				0463429C2792BDE300044CE5 /* Extension */,
+				0463429B2792BDDC00044CE5 /* Helper */,
 				043070FE2792676900CABD8E /* Model */,
 				043070FD2792676100CABD8E /* ViewModel */,
 				043070FC2792675D00CABD8E /* View */,
@@ -99,7 +103,6 @@
 		043070FF2792677B00CABD8E /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				043071012792694C00CABD8E /* Cell */,
 				043070FA2792675700CABD8E /* ListMachineDataViewController.swift */,
 			);
 			path = VC;
@@ -108,17 +111,25 @@
 		043071002792678300CABD8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				043071022792696D00CABD8E /* MachineDataCell.swift */,
+				043071032792696D00CABD8E /* MachineDataCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		043071012792694C00CABD8E /* Cell */ = {
+		0463429B2792BDDC00044CE5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				043071022792696D00CABD8E /* MachineDataCell.swift */,
-				043071032792696D00CABD8E /* MachineDataCell.xib */,
+				0463429D2792BE2000044CE5 /* MainHelper.swift */,
 			);
-			path = Cell;
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		0463429C2792BDE300044CE5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0463429E2792BE2000044CE5 /* MainHelper.swift in Sources */,
 				043070FB2792675700CABD8E /* ListMachineDataViewController.swift in Sources */,
 				043070E72792647D00CABD8E /* AppDelegate.swift in Sources */,
 				043070E92792647D00CABD8E /* SceneDelegate.swift in Sources */,
