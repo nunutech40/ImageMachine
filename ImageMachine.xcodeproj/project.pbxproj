@@ -16,6 +16,7 @@
 		043071042792696D00CABD8E /* MachineDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043071022792696D00CABD8E /* MachineDataCell.swift */; };
 		043071052792696D00CABD8E /* MachineDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043071032792696D00CABD8E /* MachineDataCell.xib */; };
 		0463429E2792BE2000044CE5 /* MainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463429D2792BE2000044CE5 /* MainHelper.swift */; };
+		0479E2242793B59900114FF6 /* Rx+ViewDidload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479E2232793B59900114FF6 /* Rx+ViewDidload.swift */; };
 		047A20AE2792DF180091A002 /* MachineDataDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A20AD2792DF180091A002 /* MachineDataDetailViewController.swift */; };
 		047A20B02792DF800091A002 /* ListMachineDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A20AF2792DF800091A002 /* ListMachineDataViewModel.swift */; };
 		047A20B22792DFEB0091A002 /* MachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A20B12792DFEB0091A002 /* MachineData.swift */; };
@@ -40,6 +41,7 @@
 		043071022792696D00CABD8E /* MachineDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataCell.swift; sourceTree = "<group>"; };
 		043071032792696D00CABD8E /* MachineDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MachineDataCell.xib; sourceTree = "<group>"; };
 		0463429D2792BE2000044CE5 /* MainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHelper.swift; sourceTree = "<group>"; };
+		0479E2232793B59900114FF6 /* Rx+ViewDidload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+ViewDidload.swift"; sourceTree = "<group>"; };
 		047A20AD2792DF180091A002 /* MachineDataDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataDetailViewController.swift; sourceTree = "<group>"; };
 		047A20AF2792DF800091A002 /* ListMachineDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMachineDataViewModel.swift; sourceTree = "<group>"; };
 		047A20B12792DFEB0091A002 /* MachineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineData.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				0487D3192792F6CA00099048 /* CustomErr+Ext.swift */,
+				0479E2232793B59900114FF6 /* Rx+ViewDidload.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -224,17 +227,9 @@
 		048C75BC279394B400C7BF23 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				048C75BD2793950A00C7BF23 /* UseCase */,
 				043070FE2792676900CABD8E /* Model */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		048C75BD2793950A00C7BF23 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UseCase;
 			sourceTree = "<group>";
 		};
 		048C75BE2793952800C7BF23 /* Presentation */ = {
@@ -391,6 +386,7 @@
 				0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */,
 				043070E92792647D00CABD8E /* SceneDelegate.swift in Sources */,
 				048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */,
+				0479E2242793B59900114FF6 /* Rx+ViewDidload.swift in Sources */,
 				043071042792696D00CABD8E /* MachineDataCell.swift in Sources */,
 				047A20AE2792DF180091A002 /* MachineDataDetailViewController.swift in Sources */,
 			);

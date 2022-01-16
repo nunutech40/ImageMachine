@@ -16,13 +16,16 @@ class MachinDataEntity: Object {
     @objc dynamic var createAt = ""
     @objc dynamic var updateAt = ""
     
-    convenience init(machineData: MachineDataModel) {
-        self.init()
-        self.id = machineData.machineId!
-        self.name = machineData.machineName!
-        self.type = machineData.machineType!
-        self.qrCode = machineData.machineQRCode ?? ""
-        self.createAt = machineData.createAt ?? ""
-        self.updateAt = machineData.updateAt ?? ""
+    override static func primaryKey() -> String {
+        return "id"
+    }
+    
+    func IncrementaID() -> Int{
+        let realm = try! Realm()
+        if let retNext = realm.objects(MachinDataEntity.self).sorted(byKeyPath: "id").first?.id {
+            return retNext + 1
+        }else{
+            return 1
+        }
     }
 }

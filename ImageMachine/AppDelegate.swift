@@ -6,14 +6,29 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    
 
-
-
+    func migrationRealm() {
+        let config = Realm.Configuration(
+            
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                migration.enumerateObjects(ofType: MachinDataEntity.className()) { oldObject, newObject in
+                    if (oldSchemaVersion < 2) {
+                        newObject!["primaryKeyProperty"] = "id"
+                    }
+                }
+            }
+        )
+        Realm.Configuration.defaultConfiguration = config
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        self.migrationRealm()
         return true
     }
 

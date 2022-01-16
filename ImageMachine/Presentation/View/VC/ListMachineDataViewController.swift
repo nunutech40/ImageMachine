@@ -6,18 +6,27 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RealmSwift
 
 class ListMachineDataViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: ListMachineDataViewModel?
+    private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupInjection()
         self.setupNavBar()
         self.setupTable()
+        
+        // cek data realm
+        let realm = try! Realm()
+        let data = realm.objects(MachinDataEntity.self)
+        print("cek dataaa count: \(data.count) and all: \(data)")
     }
     
     func setupInjection() {
@@ -70,7 +79,7 @@ extension ListMachineDataViewController {
             let textFieldName = alert.textFields![0] // Force unwrapping because we know it exists.
             let textFieldType = alert.textFields![1]
             //print("cek type \(textFieldName.text) & \(textFieldType.text)")
-            
+            self.viewModel?.addOnceData()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
             print("Nothing");
@@ -86,15 +95,15 @@ extension ListMachineDataViewController {
 
 extension ListMachineDataViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.viewModel?.machineDatalist.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MachineDataCell", for: indexPath) as! MachineDataCell
-        cell.machineNameLbl.text = "Folder Kebahagian"
-        cell.machineTypeLbl.text = "Wedding"
+        let data = self.viewModel?.machineDatalist[indexPath.row]
+        cell.machineNameLbl.text = data?.machineName
+        cell.machineTypeLbl.text = data?.machineType
         return cell
     }
-    
     
 }

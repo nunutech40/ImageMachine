@@ -20,3 +20,17 @@ enum DatabaseError: LocalizedError {
   }
 
 }
+
+enum NetworkingError: Error {
+    case error(String)
+    case defaultError
+    
+    var message: String {
+        switch self {
+        case let .error(msg):
+            return msg
+        case .defaultError:
+            return "Please retry later."
+        }
+    }
+}

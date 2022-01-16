@@ -6,31 +6,46 @@
 //
 
 import RxSwift
+import RxCocoa
 
 class ListMachineDataViewModel {
     
     private var disposeBag = DisposeBag()
     private let repository: MachinesRepository!
-    
-    @Published var machineDataList: [MachineDataModel] = []
-    @Published var errorMessage: String = ""
-    @Published var loadingState: Bool = false
+    var machineDatalist: [MachineDataModel] = []
     
     init(repository: MachinesRepository) {
         self.repository = repository
     }
     
-    func getMachineDataList() {
-        self.loadingState = true
-        self.repository.getListMachineData() { 
-            switch machineData {
-            case .success(let listMachineData):
-                DispatchQueue.main.async {
-                    self.loadingState = false
-                    self.machineDataList = listMachineData
+    func addOnceData() {
+        var object = MachineDataModel()
+        object.machineId = MachinDataEntity().IncrementaID()
+        object.machineName = "Me And You"
+        object.machineType = "Hollidays"
+        object.machineQRCode = "88999"
+        
+        self.repository.saveMachineData(from: object)
+            .subscribe (
+                onNext: { value in
+                    print("cek valuueee: \(value)")
+                    self.getListMachineData()
                 }
-            }
-        }
+            )
+            .disposed(by: disposeBag)
     }
+    
+    func getListMachineData() {
+        self.repository.getListMachineData()
+            .map { self.machineDatalist = $0 }
+            .subscribe(
+                onNext: { value in
+                    print("cek valuueee: \(value)")
+                }
+            )
+            .disposed(by: disposeBag)
+    }
+    
+    
     
 }
