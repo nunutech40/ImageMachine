@@ -11,10 +11,17 @@ import RxCocoa
 
 class MachineDataDetailViewController: UIViewController {
     
+    // OUTLET HERE
+    @IBOutlet weak var machineDataId: UILabel!
+    @IBOutlet weak var machineDataName: UILabel!
+    @IBOutlet weak var machineDataType: UILabel!
+    @IBOutlet weak var machineDataQRCode: UILabel!
+    
+    // VARIABLE HERE
     var machineId: Int?
     private var disposeBag = DisposeBag()
     var viewModel: MachineDataDetailViewModel?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupInjection()
@@ -28,7 +35,6 @@ class MachineDataDetailViewController: UIViewController {
     }
     
     func setupNavBar() {
-        //self.navigationItem.hidesBackButton = true
         self.navigationItem.title = "Machinde Data Detail"
         
         let itemRight = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(rightTapNavBar))
@@ -36,11 +42,8 @@ class MachineDataDetailViewController: UIViewController {
     }
     
     func setupData() {
-        self.viewModel?.getMcahineDataById(id: "\(self.machineId ?? 0)")
-        print("Cek data detail Folder: \(self.viewModel?.machineDatalist ?? [])")
+        self.viewModel?.getMcahineDataById(id: "\(self.machineId ?? 0)", self)
     }
-    
-    
 
 }
 
