@@ -23,9 +23,19 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyS-1M-Rpx">
                                 <rect key="frame" x="177" y="778" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanQRCode" translatesAutoresizingMaskIntoConstraints="NO" id="pzf-Tv-FL7">
+                                        <rect key="frame" x="4" y="4" width="52" height="52"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="pzf-Tv-FL7" firstAttribute="leading" secondItem="jyS-1M-Rpx" secondAttribute="leading" constant="4" id="9pU-rW-I7W"/>
+                                    <constraint firstAttribute="bottom" secondItem="pzf-Tv-FL7" secondAttribute="bottom" constant="4" id="JhB-8B-aIR"/>
+                                    <constraint firstAttribute="trailing" secondItem="pzf-Tv-FL7" secondAttribute="trailing" constant="4" id="as9-eB-tkc"/>
                                     <constraint firstAttribute="width" constant="60" id="fea-7j-nvF"/>
+                                    <constraint firstItem="pzf-Tv-FL7" firstAttribute="top" secondItem="jyS-1M-Rpx" secondAttribute="top" constant="4" id="lVI-Rd-BPq"/>
                                     <constraint firstAttribute="height" constant="60" id="nFC-fd-XVW"/>
                                 </constraints>
                             </view>
@@ -188,9 +198,7 @@
     </scenes>
     <resources>
         <image name="editIcon" width="24" height="24"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="scanQRCode" width="80" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

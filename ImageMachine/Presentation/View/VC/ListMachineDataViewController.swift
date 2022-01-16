@@ -23,7 +23,13 @@ class ListMachineDataViewController: UIViewController {
         self.setupInjection()
         self.setupNavBar()
         self.setupTable()
+        self.setupView()
         self.setupTap()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setupTable()
     }
     
     func setupInjection() {
@@ -40,6 +46,10 @@ class ListMachineDataViewController: UIViewController {
         self.navigationItem.setLeftBarButton(itemLeft, animated: true)
         
         self.navigationItem.title = "List Machine Data"
+    }
+    
+    func setupView() {
+        self.scanView.roundedView()
     }
     
     func setupTable() {
