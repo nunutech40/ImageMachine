@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import TLPhotoPicker
 import Photos
+import CoreLocation
 
 class MachineDataDetailViewController: UIViewController {
     
@@ -147,16 +148,38 @@ extension MachineDataDetailViewController: TLPhotosPickerViewControllerDelegate 
         // use selected order, fullresolution image
         self.selectedAssets = withTLPHAssets
         //self.selectedAssets[0].fullResolutionImage
-        self.testImage.image = self.selectedAssets[0].phAsset?.thumbnailImage
-        
-        print("cek thumbnail: \(self.selectedAssets[0].phAsset?.thumbnailImage)")
-        
+        //self.testImage.image = self.selectedAssets[0].fullResolutionImage
+        let urlPath = MachineDataDetailViewController.saveImageInDocumentDirectory(image: self.selectedAssets[0].fullResolutionImage!, fileName: "testImage2")
+        self.testImage.image =  MachineDataDetailViewController.loadImageFromDocumentDirectory(fileName: "testImage2")
         return true
+    }
+    
+    public static func saveImageInDocumentDirectory(image: UIImage, fileName: String) -> URL? {
+        
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        if let imageData = image.pngData() {
+            try? imageData.write(to: fileURL, options: .atomic)
+            return fileURL
+        }
+        return nil
+    }
+    
+    public static func loadImageFromDocumentDirectory(fileName: String) -> UIImage? {
+        
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            return UIImage(data: imageData)
+        } catch {}
+        return nil
     }
 }
 
 
 extension PHAsset {
+    
     var thumbnailImage : UIImage {
         get {
             let manager = PHImageManager.default()
