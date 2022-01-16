@@ -6,14 +6,48 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MachineDataDetailViewController: UIViewController {
+    
+    var machineId: Int?
+    private var disposeBag = DisposeBag()
+    var viewModel: MachineDataDetailViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.setupInjection()
+        self.setupNavBar()
+        self.setupData()
     }
     
+    func setupInjection() {
+        let inject = Injection.init().provideRepository()
+        self.viewModel = MachineDataDetailViewModel(repository: inject)
+    }
+    
+    func setupNavBar() {
+        //self.navigationItem.hidesBackButton = true
+        self.navigationItem.title = "Machinde Data Detail"
+        
+        let itemRight = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(rightTapNavBar))
+        self.navigationItem.setRightBarButton(itemRight, animated: true)
+    }
+    
+    func setupData() {
+        self.viewModel?.getMcahineDataById(id: "\(self.machineId ?? 0)")
+        print("Cek data detail Folder: \(self.viewModel?.machineDatalist ?? [])")
+    }
+    
+    
 
+}
+
+extension MachineDataDetailViewController {
+    
+    @objc func rightTapNavBar(_ gestureTap: UITapGestureRecognizer) {
+        print("cek right")
+    }
+    
 }

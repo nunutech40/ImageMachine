@@ -12,6 +12,7 @@ import RealmSwift
 
 class ListMachineDataViewController: UIViewController {
     
+    @IBOutlet weak var scanView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: ListMachineDataViewModel?
@@ -22,6 +23,7 @@ class ListMachineDataViewController: UIViewController {
         self.setupInjection()
         self.setupNavBar()
         self.setupTable()
+        self.setupTap()
     }
     
     func setupInjection() {
@@ -31,7 +33,7 @@ class ListMachineDataViewController: UIViewController {
     
     func setupNavBar() {
         //let navBarItem
-        let itemRight = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(rightTapNavBar))
+        let itemRight = UIBarButtonItem(title: "Add New", style: .plain, target: self, action: #selector(rightTapNavBar))
         self.navigationItem.setRightBarButton(itemRight, animated: true)
         
         let itemLeft = UIBarButtonItem(image: UIImage(named:"sortIcon"), style: .plain, target: self, action: #selector(leftTapNavBar))
@@ -47,6 +49,10 @@ class ListMachineDataViewController: UIViewController {
         self.tableView.dataSource = self
     }
     
+    func setupTap() {
+        MainHelper.onTap(self, self.scanView, #selector(tapToScan(_:)))
+    }
+    
 }
 
 extension ListMachineDataViewController {
@@ -57,6 +63,11 @@ extension ListMachineDataViewController {
     
     @objc func rightTapNavBar(_ gestureTap: UITapGestureRecognizer) {
         self.inputNewMachinePopUp()
+    }
+    
+    @objc func tapToScan(_ gesture: UITapGestureRecognizer) {
+        let destVC = MainHelper.instantiateVC(UIStoryboard(name: "Main", bundle: nil), "ScanQRCodeViewController") as! ScanQRCodeViewController
+        self.navigationController?.pushViewController(destVC, animated: true)
     }
     
     func inputNewMachinePopUp() {
@@ -118,6 +129,13 @@ extension ListMachineDataViewController: UITableViewDelegate, UITableViewDataSou
         cell.machineNameLbl.text = data?.machineName
         cell.machineTypeLbl.text = data?.machineType
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = self.viewModel?.machineDatalist[indexPath.row]
+        let destVC = MainHelper.instantiateVC(UIStoryboard(name: "Main", bundle: nil), "MachineDataDetailViewController") as! MachineDataDetailViewController
+        destVC.machineId = data?.machineId
+        self.navigationController?.pushViewController(destVC, animated: true)
     }
     
 }

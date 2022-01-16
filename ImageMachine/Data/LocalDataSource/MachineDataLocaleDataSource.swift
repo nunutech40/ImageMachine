@@ -14,7 +14,7 @@ protocol MachineDataLocaleProtocol: class {
     //func updateMachindeData(from machineData: MachinDataEntity) -> Observable<Bool>
     //func deleteMachineData(id: Int) -> Observable<Bool>
     func getListMachineData() -> Observable<[MachinDataEntity]>
-    func getMachineDataById(id: Int) -> Observable<[MachinDataEntity]>
+    func getMachineDataById(id: String) -> Observable<[MachinDataEntity]>
 }
 
 
@@ -80,14 +80,13 @@ extension MachineDataLocalDataSource: MachineDataLocaleProtocol {
         
     }
     
-    func getMachineDataById(id: Int) -> Observable<[MachinDataEntity]> {
+    func getMachineDataById(id: String) -> Observable<[MachinDataEntity]> {
         
         return Observable<[MachinDataEntity]>.create { observer in
             if let realm = self.realm {
               let meals: Results<MachinDataEntity> = {
                 realm.objects(MachinDataEntity.self)
-                  .filter("title contains[c] %@", id)
-                  .sorted(byKeyPath: "title", ascending: true)
+                      .filter("id == \(id)")
               }()
                 observer.onNext(meals.toArray(ofType: MachinDataEntity.self))
                 observer.onCompleted()

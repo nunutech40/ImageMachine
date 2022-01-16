@@ -22,6 +22,8 @@
 		047A20B22792DFEB0091A002 /* MachineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A20B12792DFEB0091A002 /* MachineData.swift */; };
 		047A20B62792E3E30091A002 /* MachineDataLocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A20B52792E3E30091A002 /* MachineDataLocaleDataSource.swift */; };
 		047A20B92792E7290091A002 /* MachineDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A20B82792E7290091A002 /* MachineDataEntity.swift */; };
+		047B3C212794100400F533D9 /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B3C202794100400F533D9 /* ScanQRCodeViewController.swift */; };
+		047B3C232794125400F533D9 /* MachineDataDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B3C222794125400F533D9 /* MachineDataDetailViewModel.swift */; };
 		0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D3192792F6CA00099048 /* CustomErr+Ext.swift */; };
 		0487D31C2792F88900099048 /* MachineDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D31B2792F88900099048 /* MachineDataRepository.swift */; };
 		048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C75B62793828700C7BF23 /* MachineDataMapper.swift */; };
@@ -47,6 +49,8 @@
 		047A20B12792DFEB0091A002 /* MachineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineData.swift; sourceTree = "<group>"; };
 		047A20B52792E3E30091A002 /* MachineDataLocaleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataLocaleDataSource.swift; sourceTree = "<group>"; };
 		047A20B82792E7290091A002 /* MachineDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataEntity.swift; sourceTree = "<group>"; };
+		047B3C202794100400F533D9 /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
+		047B3C222794125400F533D9 /* MachineDataDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataDetailViewModel.swift; sourceTree = "<group>"; };
 		0487D3192792F6CA00099048 /* CustomErr+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomErr+Ext.swift"; sourceTree = "<group>"; };
 		0487D31B2792F88900099048 /* MachineDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataRepository.swift; sourceTree = "<group>"; };
 		048C75B62793828700C7BF23 /* MachineDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataMapper.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				047A20AF2792DF800091A002 /* ListMachineDataViewModel.swift */,
+				047B3C222794125400F533D9 /* MachineDataDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 			children = (
 				047A20AD2792DF180091A002 /* MachineDataDetailViewController.swift */,
 				043070FA2792675700CABD8E /* ListMachineDataViewController.swift */,
+				047B3C202794100400F533D9 /* ScanQRCodeViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 				0463429E2792BE2000044CE5 /* MainHelper.swift in Sources */,
 				0487D31C2792F88900099048 /* MachineDataRepository.swift in Sources */,
 				043070FB2792675700CABD8E /* ListMachineDataViewController.swift in Sources */,
+				047B3C232794125400F533D9 /* MachineDataDetailViewModel.swift in Sources */,
 				047A20B92792E7290091A002 /* MachineDataEntity.swift in Sources */,
 				043070E72792647D00CABD8E /* AppDelegate.swift in Sources */,
 				047A20B22792DFEB0091A002 /* MachineData.swift in Sources */,
@@ -385,6 +392,7 @@
 				047A20B62792E3E30091A002 /* MachineDataLocaleDataSource.swift in Sources */,
 				0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */,
 				043070E92792647D00CABD8E /* SceneDelegate.swift in Sources */,
+				047B3C212794100400F533D9 /* ScanQRCodeViewController.swift in Sources */,
 				048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */,
 				0479E2242793B59900114FF6 /* Rx+ViewDidload.swift in Sources */,
 				043071042792696D00CABD8E /* MachineDataCell.swift in Sources */,

@@ -15,4 +15,13 @@ class MainHelper {
         view.addGestureRecognizer(tapGestures)
         view.isUserInteractionEnabled    = true
     }
+    
+    // next vc // push
+    static func instantiateVC(_ storyboard: UIStoryboard, _ id: String) -> UIViewController? {
+        if #available(iOS 13.0, *) {
+            return storyboard.instantiateViewController(identifier: id)
+        } else {
+            return storyboard.instantiateViewController(withIdentifier: id)
+        }
+    }
 }

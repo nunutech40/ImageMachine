@@ -13,7 +13,7 @@ protocol MachinesRepositoryProtocol {
     //func updateMachindeData(from machineData: MachinDataEntity) -> Observable<Bool>
     //func deleteMachineData(id: Int) -> Observable<Bool>
     func getListMachineData() -> Observable<[MachineDataModel]>
-    func getMachineDataById(id: Int) -> Observable<[MachineDataModel]>
+    func getMachineDataById(id: String) -> Observable<[MachineDataModel]>
 }
 
 final class MachinesRepository: NSObject {
@@ -41,7 +41,7 @@ extension MachinesRepository: MachinesRepositoryProtocol {
             .map { MachineDataMapper.mapMachineEntityToModel(input: $0) }
     }
     
-    func getMachineDataById(id: Int) -> Observable<[MachineDataModel]> {
+    func getMachineDataById(id: String) -> Observable<[MachineDataModel]> {
         return self.locale.getMachineDataById(id: id)
             .map { MachineDataMapper.mapMachineEntityToModel(input: $0) }
     }
