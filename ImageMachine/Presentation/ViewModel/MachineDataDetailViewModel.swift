@@ -34,8 +34,18 @@ class MachineDataDetailViewModel {
             .disposed(by: disposeBag)
     }
     
+    func updateDataById(id: String, machineData: MachineDataModel, _ vc: MachineDataDetailViewController) {
+        self.repository.saveMachineData(from: machineData)
+            .subscribe (
+                onNext: { value in
+                    self.getMcahineDataById(id: id, vc)
+                }
+            )
+            .disposed(by: disposeBag)
+    }
+    
     func setupData(_ vc: MachineDataDetailViewController, data: MachineDataModel) {
-        vc.machineDataId.text = "\(data.machineId ?? 0)"
+        vc.machineDataId.text = "Machine ID: \(data.machineId ?? 0)"
         vc.machineDataName.text = data.machineName
         vc.machineDataType.text = data.machineType
         vc.machineDataQRCode.text = data.machineQRCode
