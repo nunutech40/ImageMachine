@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+    <key>NSCameraUsageDescription</key>
+    <string>This app ask permission to access your camera for sending scan barcode.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app ask permission to access your camera for get image from gallery.</string>
 </dict>
 </plist>

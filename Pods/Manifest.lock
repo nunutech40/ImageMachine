@@ -15,12 +15,14 @@ PODS:
   - RxRelay (5.1.3):
     - RxSwift (~> 5)
   - RxSwift (5.1.3)
+  - TLPhotoPicker (2.1.9)
 
 DEPENDENCIES:
   - RealmSwift (~> 5)
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
   - RxSwift (~> 5)
+  - TLPhotoPicker
 
 SPEC REPOS:
   trunk:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - RxDataSources
     - RxRelay
     - RxSwift
+    - TLPhotoPicker
 
 SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
@@ -40,7 +43,8 @@ SPEC CHECKSUMS:
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
+  TLPhotoPicker: 939c40eaad130b69f9571e61e021e8120fa76329
 
-PODFILE CHECKSUM: 30513591566eacc282ecbfb647732b24d6032d98
+PODFILE CHECKSUM: bd04786ca925a4ee0e4916d0d3001fb533e70738
 
 COCOAPODS: 1.11.2

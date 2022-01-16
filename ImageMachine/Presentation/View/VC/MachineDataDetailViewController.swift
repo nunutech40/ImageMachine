@@ -8,6 +8,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import TLPhotoPicker
+import Photos
 
 class MachineDataDetailViewController: UIViewController {
     
@@ -19,11 +21,13 @@ class MachineDataDetailViewController: UIViewController {
     @IBOutlet weak var editNamaIcon: UIImageView!
     @IBOutlet weak var editTypeIcon: UIImageView!
     @IBOutlet weak var editQRCodeIcon: UIImageView!
+    @IBOutlet weak var testImage: UIImageView!
     
     // VARIABLE HERE
     var machineId: Int?
     private var disposeBag = DisposeBag()
     var viewModel: MachineDataDetailViewModel?
+    var selectedAssets = [TLPHAsset]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +59,19 @@ class MachineDataDetailViewController: UIViewController {
         MainHelper.onTap(self, editQRCodeIcon, #selector(tapEditQRCode(_:)))
     }
     
+    @IBAction func chooseImageButton(_ sender: Any) {
+        let viewController = TLPhotosPickerViewController()
+        viewController.delegate = self
+        var configure = TLPhotosPickerConfigure()
+        configure.maxSelectedAssets = 10
+        configure.allowedVideo = false
+        configure.usedCameraButton = false
+        viewController.configure = configure
+        viewController.selectedAssets = self.selectedAssets
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
 }
 
 extension MachineDataDetailViewController {
@@ -74,6 +91,8 @@ extension MachineDataDetailViewController {
     @objc func tapEditQRCode(_ gesture: UITapGestureRecognizer) {
         self.inputTextAlert(message: "Edit Your QRCode Machine Data", placeholder: "Input New QRCode Number", statusEdit: "qrcode")
     }
+    
+    
     
     func inputTextAlert(
         message: String,
@@ -120,4 +139,34 @@ extension MachineDataDetailViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+}
+
+extension MachineDataDetailViewController: TLPhotosPickerViewControllerDelegate {
+    
+    func shouldDismissPhotoPicker(withTLPHAssets: [TLPHAsset]) -> Bool {
+        // use selected order, fullresolution image
+        self.selectedAssets = withTLPHAssets
+        //self.selectedAssets[0].fullResolutionImage
+        self.testImage.image = self.selectedAssets[0].phAsset?.thumbnailImage
+        
+        print("cek thumbnail: \(self.selectedAssets[0].phAsset?.thumbnailImage)")
+        
+        return true
+    }
+}
+
+
+extension PHAsset {
+    var thumbnailImage : UIImage {
+        get {
+            let manager = PHImageManager.default()
+            let option = PHImageRequestOptions()
+            var thumbnail = UIImage()
+            option.isSynchronous = true
+            manager.requestImage(for: self, targetSize: CGSize(width: 300, height: 300), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+                thumbnail = result!
+            })
+            return thumbnail
+        }
+    }
 }

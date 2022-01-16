@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		043070E72792647D00CABD8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043070E62792647D00CABD8E /* AppDelegate.swift */; };
-		043070E92792647D00CABD8E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043070E82792647D00CABD8E /* SceneDelegate.swift */; };
 		043070EE2792647D00CABD8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043070EC2792647D00CABD8E /* Main.storyboard */; };
 		043070F02792647E00CABD8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043070EF2792647E00CABD8E /* Assets.xcassets */; };
 		043070F32792647E00CABD8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043070F12792647E00CABD8E /* LaunchScreen.storyboard */; };
@@ -25,6 +24,7 @@
 		047A20B92792E7290091A002 /* MachineDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A20B82792E7290091A002 /* MachineDataEntity.swift */; };
 		047B3C212794100400F533D9 /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B3C202794100400F533D9 /* ScanQRCodeViewController.swift */; };
 		047B3C232794125400F533D9 /* MachineDataDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B3C222794125400F533D9 /* MachineDataDetailViewModel.swift */; };
+		047C5FE8279456FA0012D85A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5FE7279456FA0012D85A /* SceneDelegate.swift */; };
 		0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D3192792F6CA00099048 /* CustomErr+Ext.swift */; };
 		0487D31C2792F88900099048 /* MachineDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D31B2792F88900099048 /* MachineDataRepository.swift */; };
 		048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C75B62793828700C7BF23 /* MachineDataMapper.swift */; };
@@ -35,7 +35,6 @@
 /* Begin PBXFileReference section */
 		043070E32792647D00CABD8E /* ImageMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043070E62792647D00CABD8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		043070E82792647D00CABD8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		043070ED2792647D00CABD8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		043070EF2792647E00CABD8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		043070F22792647E00CABD8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		047A20B82792E7290091A002 /* MachineDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataEntity.swift; sourceTree = "<group>"; };
 		047B3C202794100400F533D9 /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
 		047B3C222794125400F533D9 /* MachineDataDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataDetailViewModel.swift; sourceTree = "<group>"; };
+		047C5FE7279456FA0012D85A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0487D3192792F6CA00099048 /* CustomErr+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomErr+Ext.swift"; sourceTree = "<group>"; };
 		0487D31B2792F88900099048 /* MachineDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataRepository.swift; sourceTree = "<group>"; };
 		048C75B62793828700C7BF23 /* MachineDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataMapper.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 				048C75B827938C5800C7BF23 /* DI */,
 				048C75B42793825000C7BF23 /* Utils */,
 				043070E62792647D00CABD8E /* AppDelegate.swift */,
-				043070E82792647D00CABD8E /* SceneDelegate.swift */,
+				047C5FE7279456FA0012D85A /* SceneDelegate.swift */,
 				043070EC2792647D00CABD8E /* Main.storyboard */,
 				043070EF2792647E00CABD8E /* Assets.xcassets */,
 				043070F12792647E00CABD8E /* LaunchScreen.storyboard */,
@@ -394,8 +394,8 @@
 				047A20B02792DF800091A002 /* ListMachineDataViewModel.swift in Sources */,
 				048C75BA27938C6A00C7BF23 /* Injection.swift in Sources */,
 				047A20B62792E3E30091A002 /* MachineDataLocaleDataSource.swift in Sources */,
+				047C5FE8279456FA0012D85A /* SceneDelegate.swift in Sources */,
 				0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */,
-				043070E92792647D00CABD8E /* SceneDelegate.swift in Sources */,
 				047B3C212794100400F533D9 /* ScanQRCodeViewController.swift in Sources */,
 				048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */,
 				0479E2242793B59900114FF6 /* Rx+ViewDidload.swift in Sources */,
@@ -550,6 +550,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = URQ4YHQ5W9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImageMachine/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Image Machine";
@@ -558,6 +559,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -567,7 +569,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -579,6 +581,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = URQ4YHQ5W9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImageMachine/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Image Machine";
@@ -587,6 +590,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -596,7 +600,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
