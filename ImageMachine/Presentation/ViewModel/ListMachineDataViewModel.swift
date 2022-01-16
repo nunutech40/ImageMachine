@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 class ListMachineDataViewModel {
     
@@ -18,29 +19,23 @@ class ListMachineDataViewModel {
         self.repository = repository
     }
     
-    func addOnceData() {
-        var object = MachineDataModel()
-        object.machineId = MachinDataEntity().IncrementaID()
-        object.machineName = "Me And You"
-        object.machineType = "Hollidays"
-        object.machineQRCode = "88999"
-        
-        self.repository.saveMachineData(from: object)
+    func addOnceData(machineData: MachineDataModel, tableView: UITableView) {
+        self.repository.saveMachineData(from: machineData)
             .subscribe (
                 onNext: { value in
-                    print("cek valuueee: \(value)")
-                    self.getListMachineData()
+                    self.getListMachineData(tableView: tableView)
                 }
             )
             .disposed(by: disposeBag)
     }
     
-    func getListMachineData() {
+    func getListMachineData(tableView: UITableView) {
         self.repository.getListMachineData()
-            .map { self.machineDatalist = $0 }
+            .asObservable()
             .subscribe(
                 onNext: { value in
-                    print("cek valuueee: \(value)")
+                    self.machineDatalist = value
+                    tableView.reloadData()
                 }
             )
             .disposed(by: disposeBag)

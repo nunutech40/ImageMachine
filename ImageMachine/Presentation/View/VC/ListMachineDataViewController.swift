@@ -22,11 +22,6 @@ class ListMachineDataViewController: UIViewController {
         self.setupInjection()
         self.setupNavBar()
         self.setupTable()
-        
-        // cek data realm
-        let realm = try! Realm()
-        let data = realm.objects(MachinDataEntity.self)
-        print("cek dataaa count: \(data.count) and all: \(data)")
     }
     
     func setupInjection() {
@@ -46,10 +41,10 @@ class ListMachineDataViewController: UIViewController {
     }
     
     func setupTable() {
+        self.viewModel?.getListMachineData(tableView: self.tableView)
         self.tableView.register(UINib(nibName: "MachineDataCell", bundle: nil), forCellReuseIdentifier: "MachineDataCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.reloadData()
     }
     
 }
@@ -75,11 +70,30 @@ extension ListMachineDataViewController {
             typeName.placeholder = "Enter Type Name"
         }
         
+        alert.addTextField { (qrcodeText) in
+            qrcodeText.text = ""
+            qrcodeText.placeholder = "Enter Type Name"
+        }
+        
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
             let textFieldName = alert.textFields![0] // Force unwrapping because we know it exists.
             let textFieldType = alert.textFields![1]
+            let textQrCode = alert.textFields![2]
             //print("cek type \(textFieldName.text) & \(textFieldType.text)")
-            self.viewModel?.addOnceData()
+     
+            var machineDataModel = MachineDataModel()
+            machineDataModel.machineId = MachinDataEntity().IncrementaID()
+            if let strName = textFieldName.text {
+                machineDataModel.machineName = strName
+            }
+            if let strType = textFieldType.text {
+                machineDataModel.machineType = strType
+            }
+            
+            if let strQRCode = textQrCode.text {
+                machineDataModel.machineQRCode = strQRCode
+            }
+            self.viewModel?.addOnceData(machineData: machineDataModel, tableView: self.tableView)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
             print("Nothing");

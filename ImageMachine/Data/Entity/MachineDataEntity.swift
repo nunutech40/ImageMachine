@@ -22,7 +22,7 @@ class MachinDataEntity: Object {
     
     func IncrementaID() -> Int{
         let realm = try! Realm()
-        if let retNext = realm.objects(MachinDataEntity.self).sorted(byKeyPath: "id").first?.id {
+        if let retNext = realm.objects(MachinDataEntity.self).sorted(byKeyPath: "id", ascending: false).first?.id {
             return retNext + 1
         }else{
             return 1
