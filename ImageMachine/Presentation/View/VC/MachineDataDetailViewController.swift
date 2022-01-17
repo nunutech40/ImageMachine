@@ -190,7 +190,19 @@ extension MachineDataDetailViewController {
                 case "type":
                     machineDataModel.machineType = strText
                 case "qrcode":
-                    machineDataModel.machineQRCode = strText
+                    
+                    self.viewModel?.getMcahineDataByQrCode(qrCode: strText, self, completion: { isTrue in
+                        if !isTrue {
+                            let alert = UIAlertController(title: "Delete", message: "QR Code already in database or you not input QRCode, please insert another qrcode?", preferredStyle: UIAlertController.Style.alert)
+
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+                            self.present(alert, animated: true, completion: nil)
+                        } else {
+                            machineDataModel.machineQRCode = strText
+                        }
+                    })
+                   
                 default:
                     print("do nothing")
                 }

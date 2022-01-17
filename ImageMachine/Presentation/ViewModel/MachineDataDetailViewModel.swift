@@ -45,6 +45,26 @@ class MachineDataDetailViewModel {
             .disposed(by: disposeBag)
     }
     
+    func getMcahineDataByQrCode(qrCode: String, _ vc: MachineDataDetailViewController, completion: @escaping (Bool) -> Void) {
+        self.repository.getMachineDataByQrCode(qrcode: qrCode)
+            .asObservable()
+            .subscribe(
+                onNext: { value in
+                    self.machineDatalist = value
+                    guard (self.machineDatalist.count > 0) else {
+                        completion(true)
+                        return
+                    }
+                    completion(false)
+                },
+                onError: {_ in
+                    completion(false)
+                }
+            )
+            .disposed(by: disposeBag)
+        
+    }
+    
     func setupData(_ vc: MachineDataDetailViewController, data: MachineDataModel) {
         vc.machineDataId.text = "Machine ID: \(data.machineId ?? 0)"
         vc.machineDataName.text = data.machineName
