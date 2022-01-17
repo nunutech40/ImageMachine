@@ -19,5 +19,4 @@ target 'ImageMachine' do
     #localstorage
     pod 'RealmSwift', '~> 5'
 
-
 end

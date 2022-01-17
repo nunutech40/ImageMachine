@@ -11,7 +11,7 @@ import RxSwift
 protocol MachinesRepositoryProtocol {
     func saveMachineData(from machineData: MachineDataModel) -> Observable<Bool>
     //func updateMachindeData(from machineData: MachinDataEntity) -> Observable<Bool>
-    //func deleteMachineData(id: Int) -> Observable<Bool>
+    func deleteMachineData(id: String) -> Observable<Bool>
     func getListMachineData() -> Observable<[MachineDataModel]>
     func getMachineDataById(id: String) -> Observable<[MachineDataModel]>
     func getMachineDataByQrCode(qrcode: String) -> Observable<[MachineDataModel]>
@@ -33,6 +33,11 @@ final class MachinesRepository: NSObject {
 }
 
 extension MachinesRepository: MachinesRepositoryProtocol {
+    
+    func deleteMachineData(id: String) -> Observable<Bool> {
+        return self.locale.deleteMachineData(id: id)
+    }
+    
     
     func saveMachineData(from machineData: MachineDataModel) -> Observable<Bool> {
         return self.locale.saveMachineData(from: MachineDataMapper.mapMachineDataModelToEntity(input: machineData))

@@ -162,6 +162,9 @@ extension ListMachineDataViewController: UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MachineDataCell", for: indexPath) as! MachineDataCell
         let data = self.viewModel?.machineDatalist[indexPath.row]
+        cell.delegate = self
+        cell.configureCell()
+        cell.machineId = data?.machineId ?? 0
         cell.machineNameLbl.text = data?.machineName
         cell.machineTypeLbl.text = data?.machineType
         return cell
@@ -174,4 +177,18 @@ extension ListMachineDataViewController: UITableViewDelegate, UITableViewDataSou
         self.navigationController?.pushViewController(destVC, animated: true)
     }
     
+}
+
+extension ListMachineDataViewController: ProtoclDeleteMachine {
+    func didDelete(machineId: Int) {
+        let alert = UIAlertController(title: "Delete", message: "Delete Machine?", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.viewModel?.deleteMachineDataById(id: "\(machineId)", tableView: self.tableView)
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        present(alert, animated: true, completion: nil)
+    }
 }

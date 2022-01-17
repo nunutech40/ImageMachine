@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,22 +28,29 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-6u-vl3">
-                                <rect key="frame" x="40" y="0.0" width="248" height="36"/>
+                                <rect key="frame" x="40" y="0.0" width="208" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeM-2D-hWi">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOe-Uh-eCc">
-                                        <rect key="frame" x="0.0" y="20.5" width="248" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="208" height="15.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deleteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="lJy-FG-IRO">
+                                <rect key="frame" x="256" y="0.0" width="32" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="V8D-bv-LCX"/>
+                                    <constraint firstAttribute="height" constant="36" id="rhC-T3-H2S"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                     </stackView>
                 </subviews>
@@ -55,6 +63,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="deleteIcon" destination="lJy-FG-IRO" id="TDC-BM-1fM"/>
                 <outlet property="machineNameLbl" destination="yeM-2D-hWi" id="fm8-NO-JXQ"/>
                 <outlet property="machineTypeLbl" destination="GOe-Uh-eCc" id="Cig-Up-HjN"/>
             </connections>
@@ -62,6 +71,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="deleteIcon" width="64" height="64"/>
         <image name="folder" width="50" height="50"/>
     </resources>
 </document>

@@ -40,6 +40,16 @@ class ListMachineDataViewModel {
             .disposed(by: disposeBag)
     }
     
+    func deleteMachineDataById(id: String, tableView: UITableView) {
+        self.repository.deleteMachineData(id: id)
+            .subscribe (
+                onNext: { value in
+                    self.getListMachineData(tableView: tableView)
+                }
+            )
+            .disposed(by: disposeBag)
+    }
+    
     
     
 }

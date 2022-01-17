@@ -11,8 +11,7 @@ import RxSwift
 
 protocol MachineDataLocaleProtocol: class {
     func saveMachineData(from machineData: MachinDataEntity) -> Observable<Bool>
-    //func updateMachindeData(from machineData: MachinDataEntity) -> Observable<Bool>
-    //func deleteMachineData(id: Int) -> Observable<Bool>
+    func deleteMachineData(id: String) -> Observable<Bool>
     func getListMachineData() -> Observable<[MachinDataEntity]>
     func getMachineDataById(id: String) -> Observable<[MachinDataEntity]>
     func getMachineDataByQrCode(qrcode: String) -> Observable<[MachinDataEntity]>
@@ -55,23 +54,40 @@ extension MachineDataLocalDataSource: MachineDataLocaleProtocol {
         }
     }
     
-//    func updateMachindeData(from machineData: MachinDataEntity) -> Observable<Bool> {
-//        <#code#>
-//    }
-//
-//    func deleteMachineData(id: Int) -> Observable<Bool> {
-//        <#code#>
-//    }
+    func deleteMachineData(id: String) -> Observable<Bool> {
+        return Observable<Bool>.create { observer in
+            
+            if let realm = self.realm {
+                do {
+                    try realm.write {
+                        let machineData: Results<MachinDataEntity> = {
+                          realm.objects(MachinDataEntity.self)
+                                .filter("id == \(id)")
+                        }()
+                        realm.delete(machineData)
+                        observer.onNext(true)
+                        observer.onCompleted()
+                    }
+                } catch {
+                    observer.onError(DatabaseError.requestFailed)
+                }
+            } else {
+                observer.onError(DatabaseError.invalidInstance)
+            }
+            
+            return Disposables.create()
+        }
+    }
     
     func getListMachineData() -> Observable<[MachinDataEntity]> {
         
         return Observable<[MachinDataEntity]>.create { observer in
             if let realm = self.realm {
-                let meals: Results<MachinDataEntity> = {
+                let machineData: Results<MachinDataEntity> = {
                     realm.objects(MachinDataEntity.self)
                         .sorted(byKeyPath: "id", ascending: true)
                 }()
-                observer.onNext(meals.toArray(ofType: MachinDataEntity.self))
+                observer.onNext(machineData.toArray(ofType: MachinDataEntity.self))
                 observer.onCompleted()
             } else {
                 observer.onError(DatabaseError.invalidInstance)
@@ -85,11 +101,11 @@ extension MachineDataLocalDataSource: MachineDataLocaleProtocol {
         
         return Observable<[MachinDataEntity]>.create { observer in
             if let realm = self.realm {
-              let meals: Results<MachinDataEntity> = {
+              let machineData: Results<MachinDataEntity> = {
                 realm.objects(MachinDataEntity.self)
                       .filter("id == \(id)")
               }()
-                observer.onNext(meals.toArray(ofType: MachinDataEntity.self))
+                observer.onNext(machineData.toArray(ofType: MachinDataEntity.self))
                 observer.onCompleted()
             } else {
                 observer.onError(DatabaseError.invalidInstance)
@@ -102,11 +118,11 @@ extension MachineDataLocalDataSource: MachineDataLocaleProtocol {
         
         return Observable<[MachinDataEntity]>.create { observer in
             if let realm = self.realm {
-              let meals: Results<MachinDataEntity> = {
+              let machineData: Results<MachinDataEntity> = {
                 realm.objects(MachinDataEntity.self)
                       .filter("qrCode == '\(qrcode)'")
               }()
-                observer.onNext(meals.toArray(ofType: MachinDataEntity.self))
+                observer.onNext(machineData.toArray(ofType: MachinDataEntity.self))
                 observer.onCompleted()
             } else {
                 observer.onError(DatabaseError.invalidInstance)
