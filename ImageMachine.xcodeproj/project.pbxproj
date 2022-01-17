@@ -25,6 +25,7 @@
 		047B3C212794100400F533D9 /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B3C202794100400F533D9 /* ScanQRCodeViewController.swift */; };
 		047B3C232794125400F533D9 /* MachineDataDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B3C222794125400F533D9 /* MachineDataDetailViewModel.swift */; };
 		047C5FE8279456FA0012D85A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5FE7279456FA0012D85A /* SceneDelegate.swift */; };
+		0485D0F22795549900464B55 /* ScanQRCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485D0F12795549900464B55 /* ScanQRCodeViewModel.swift */; };
 		0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D3192792F6CA00099048 /* CustomErr+Ext.swift */; };
 		0487D31C2792F88900099048 /* MachineDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D31B2792F88900099048 /* MachineDataRepository.swift */; };
 		04890E432795137900B64B4F /* ImageFullScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04890E422795137900B64B4F /* ImageFullScreenVC.swift */; };
@@ -54,6 +55,7 @@
 		047B3C202794100400F533D9 /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewController.swift; sourceTree = "<group>"; };
 		047B3C222794125400F533D9 /* MachineDataDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataDetailViewModel.swift; sourceTree = "<group>"; };
 		047C5FE7279456FA0012D85A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0485D0F12795549900464B55 /* ScanQRCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeViewModel.swift; sourceTree = "<group>"; };
 		0487D3192792F6CA00099048 /* CustomErr+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomErr+Ext.swift"; sourceTree = "<group>"; };
 		0487D31B2792F88900099048 /* MachineDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataRepository.swift; sourceTree = "<group>"; };
 		04890E422795137900B64B4F /* ImageFullScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFullScreenVC.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				047A20AF2792DF800091A002 /* ListMachineDataViewModel.swift */,
 				047B3C222794125400F533D9 /* MachineDataDetailViewModel.swift */,
+				0485D0F12795549900464B55 /* ScanQRCodeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				0463429E2792BE2000044CE5 /* MainHelper.swift in Sources */,
 				0487D31C2792F88900099048 /* MachineDataRepository.swift in Sources */,
 				043070FB2792675700CABD8E /* ListMachineDataViewController.swift in Sources */,
+				0485D0F22795549900464B55 /* ScanQRCodeViewModel.swift in Sources */,
 				047B3C232794125400F533D9 /* MachineDataDetailViewModel.swift in Sources */,
 				047A20B92792E7290091A002 /* MachineDataEntity.swift in Sources */,
 				043070E72792647D00CABD8E /* AppDelegate.swift in Sources */,

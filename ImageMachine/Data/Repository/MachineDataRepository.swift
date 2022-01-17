@@ -14,6 +14,7 @@ protocol MachinesRepositoryProtocol {
     //func deleteMachineData(id: Int) -> Observable<Bool>
     func getListMachineData() -> Observable<[MachineDataModel]>
     func getMachineDataById(id: String) -> Observable<[MachineDataModel]>
+    func getMachineDataByQrCode(qrcode: String) -> Observable<[MachineDataModel]>
 }
 
 final class MachinesRepository: NSObject {
@@ -32,6 +33,7 @@ final class MachinesRepository: NSObject {
 }
 
 extension MachinesRepository: MachinesRepositoryProtocol {
+    
     func saveMachineData(from machineData: MachineDataModel) -> Observable<Bool> {
         return self.locale.saveMachineData(from: MachineDataMapper.mapMachineDataModelToEntity(input: machineData))
     }
@@ -46,5 +48,9 @@ extension MachinesRepository: MachinesRepositoryProtocol {
             .map { MachineDataMapper.mapMachineEntityToModel(input: $0) }
     }
     
+    func getMachineDataByQrCode(qrcode: String) -> Observable<[MachineDataModel]> {
+        return self.locale.getMachineDataByQrCode(qrcode: qrcode)
+            .map { MachineDataMapper.mapMachineEntityToModel(input: $0)}
+    }
     
 }

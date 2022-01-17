@@ -15,6 +15,7 @@ protocol MachineDataLocaleProtocol: class {
     //func deleteMachineData(id: Int) -> Observable<Bool>
     func getListMachineData() -> Observable<[MachinDataEntity]>
     func getMachineDataById(id: String) -> Observable<[MachinDataEntity]>
+    func getMachineDataByQrCode(qrcode: String) -> Observable<[MachinDataEntity]>
 }
 
 
@@ -87,6 +88,23 @@ extension MachineDataLocalDataSource: MachineDataLocaleProtocol {
               let meals: Results<MachinDataEntity> = {
                 realm.objects(MachinDataEntity.self)
                       .filter("id == \(id)")
+              }()
+                observer.onNext(meals.toArray(ofType: MachinDataEntity.self))
+                observer.onCompleted()
+            } else {
+                observer.onError(DatabaseError.invalidInstance)
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func getMachineDataByQrCode(qrcode: String) -> Observable<[MachinDataEntity]> {
+        
+        return Observable<[MachinDataEntity]>.create { observer in
+            if let realm = self.realm {
+              let meals: Results<MachinDataEntity> = {
+                realm.objects(MachinDataEntity.self)
+                      .filter("qrCode == '\(qrcode)'")
               }()
                 observer.onNext(meals.toArray(ofType: MachinDataEntity.self))
                 observer.onCompleted()
