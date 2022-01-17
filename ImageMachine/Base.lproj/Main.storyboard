@@ -140,22 +140,41 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Us-JB-Uz4">
-                                <rect key="frame" x="24" y="204.5" width="366" height="40"/>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.31372549020000001" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="7Uz-v8-uYX"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Machine Image">
-                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="chooseImageButton:" destination="7Fe-Sc-IOJ" eventType="touchUpInside" id="CgL-r5-bib"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0qa-0X-2Sp">
+                                <rect key="frame" x="24" y="212.5" width="366" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Us-JB-Uz4">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.31372549020000001" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="7Uz-v8-uYX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Browse Image">
+                                            <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="chooseImageButton:" destination="7Fe-Sc-IOJ" eventType="touchUpInside" id="CgL-r5-bib"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzR-u1-Z2A">
+                                        <rect key="frame" x="0.0" y="48" width="366" height="40"/>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.31372549020000001" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="rYS-VL-MFz"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Delete Image">
+                                            <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="deleteImageButton:" destination="7Fe-Sc-IOJ" eventType="touchUpInside" id="uEO-6u-Mji"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ckb-lS-1ic">
-                                <rect key="frame" x="0.0" y="260.5" width="414" height="585.5"/>
+                                <rect key="frame" x="0.0" y="316.5" width="414" height="529.5"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yDD-Md-w7E">
                                     <size key="itemSize" width="128" height="128"/>
@@ -174,16 +193,25 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cih-DJ-6hI">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6l9-Y9-VUf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.45426102189828227" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="Cih-DJ-6hI" firstAttribute="leading" secondItem="XSU-jw-Fcx" secondAttribute="leading" id="Ev6-hQ-wNq"/>
                                             <constraint firstAttribute="trailing" secondItem="Cih-DJ-6hI" secondAttribute="trailing" id="JwV-gG-mlE"/>
+                                            <constraint firstAttribute="bottom" secondItem="6l9-Y9-VUf" secondAttribute="bottom" id="N6o-sv-623"/>
+                                            <constraint firstItem="6l9-Y9-VUf" firstAttribute="top" secondItem="XSU-jw-Fcx" secondAttribute="top" id="Wc2-km-R2I"/>
                                             <constraint firstAttribute="bottom" secondItem="Cih-DJ-6hI" secondAttribute="bottom" id="fK8-4h-Z8O"/>
+                                            <constraint firstAttribute="trailing" secondItem="6l9-Y9-VUf" secondAttribute="trailing" id="jxp-O8-Nh1"/>
                                             <constraint firstItem="Cih-DJ-6hI" firstAttribute="top" secondItem="XSU-jw-Fcx" secondAttribute="top" id="t4S-Rd-EGj"/>
+                                            <constraint firstItem="6l9-Y9-VUf" firstAttribute="leading" secondItem="XSU-jw-Fcx" secondAttribute="leading" id="zOu-mk-wvB"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="mediaImage" destination="Cih-DJ-6hI" id="XIh-Sh-Z9W"/>
+                                            <outlet property="viewScreen" destination="6l9-Y9-VUf" id="by0-jr-WCc"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -192,19 +220,20 @@
                         <viewLayoutGuide key="safeArea" id="obJ-Ho-c5s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0qa-0X-2Sp" firstAttribute="top" secondItem="Mgo-aG-YlZ" secondAttribute="bottom" constant="16" id="2Zt-Dq-NF6"/>
                             <constraint firstItem="obJ-Ho-c5s" firstAttribute="bottom" secondItem="Ckb-lS-1ic" secondAttribute="bottom" constant="16" id="2bC-En-gib"/>
-                            <constraint firstItem="5Us-JB-Uz4" firstAttribute="top" secondItem="Mgo-aG-YlZ" secondAttribute="bottom" constant="8" id="3GW-9O-1Dz"/>
                             <constraint firstItem="Mgo-aG-YlZ" firstAttribute="top" secondItem="obJ-Ho-c5s" secondAttribute="top" constant="24" id="5iv-Wq-gaa"/>
                             <constraint firstItem="Mgo-aG-YlZ" firstAttribute="leading" secondItem="obJ-Ho-c5s" secondAttribute="leading" constant="16" id="ACT-6P-CvO"/>
+                            <constraint firstItem="obJ-Ho-c5s" firstAttribute="trailing" secondItem="0qa-0X-2Sp" secondAttribute="trailing" constant="24" id="GdL-Rn-oUK"/>
+                            <constraint firstItem="Ckb-lS-1ic" firstAttribute="top" secondItem="0qa-0X-2Sp" secondAttribute="bottom" constant="16" id="JfU-h2-uV8"/>
                             <constraint firstItem="obJ-Ho-c5s" firstAttribute="trailing" secondItem="Ckb-lS-1ic" secondAttribute="trailing" id="ONo-rm-47j"/>
                             <constraint firstItem="Ckb-lS-1ic" firstAttribute="leading" secondItem="obJ-Ho-c5s" secondAttribute="leading" id="Pzh-nD-WFU"/>
-                            <constraint firstItem="Ckb-lS-1ic" firstAttribute="top" secondItem="5Us-JB-Uz4" secondAttribute="bottom" constant="16" id="T9E-og-tn1"/>
-                            <constraint firstItem="5Us-JB-Uz4" firstAttribute="leading" secondItem="obJ-Ho-c5s" secondAttribute="leading" constant="24" id="q9A-L0-q59"/>
+                            <constraint firstItem="0qa-0X-2Sp" firstAttribute="leading" secondItem="obJ-Ho-c5s" secondAttribute="leading" constant="24" id="e5l-NT-VTH"/>
                             <constraint firstItem="Mgo-aG-YlZ" firstAttribute="centerX" secondItem="zd8-u4-yVV" secondAttribute="centerX" id="uoW-9x-5KC"/>
-                            <constraint firstItem="5Us-JB-Uz4" firstAttribute="centerX" secondItem="zd8-u4-yVV" secondAttribute="centerX" id="xbJ-es-Of3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnImage" destination="5Us-JB-Uz4" id="LBj-K8-lYY"/>
                         <outlet property="collectionView" destination="Ckb-lS-1ic" id="did-Y2-FGq"/>
                         <outlet property="editNamaIcon" destination="9xb-lB-CPw" id="o0C-0i-brJ"/>
                         <outlet property="editQRCodeIcon" destination="EFn-s8-3pC" id="YBB-tX-epP"/>

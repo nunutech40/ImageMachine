@@ -23,6 +23,7 @@ class MachineDataDetailViewController: UIViewController {
     @IBOutlet weak var editTypeIcon: UIImageView!
     @IBOutlet weak var editQRCodeIcon: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var btnImage: UIButton!
     
     // VARIABLE HERE
     var machineId: Int?
@@ -30,6 +31,8 @@ class MachineDataDetailViewController: UIViewController {
     var viewModel: MachineDataDetailViewModel?
     var selectedAssets = [TLPHAsset]()
     var multipleSelect = false
+    var selectedItems = [IndexPath]()
+    var dataChanged = BehaviorRelay<[IndexPath]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +95,19 @@ class MachineDataDetailViewController: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    @IBAction func deleteImageButton(_ sender: Any) {
+        if selectedItems.count < 1 {
+            let alert = UIAlertController(title: "Info Delete", message: "Please select image for deleted", preferredStyle: UIAlertController.Style.alert)
+
+            alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: { (action: UIAlertAction!) in
+                 
+            }))
+            
+            present(alert, animated: true, completion: nil)
+        } else {
+            
+        }
+    }
 }
 
 extension MachineDataDetailViewController {
@@ -112,8 +128,6 @@ extension MachineDataDetailViewController {
     @objc func tapEditQRCode(_ gesture: UITapGestureRecognizer) {
         self.inputTextAlert(message: "Edit Your QRCode Machine Data", placeholder: "Input New QRCode Number", statusEdit: "qrcode")
     }
-    
-    
     
     func inputTextAlert(
         message: String,
@@ -224,20 +238,26 @@ extension MachineDataDetailViewController: UICollectionViewDelegate, UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaCollectionViewCell", for: indexPath) as! MediaCollectionViewCell
         let data = self.viewModel?.machineDatalist[indexPath.section].urlPaths[indexPath.row]
         cell.mediaImage.sd_setImage(with: URL(string: data ?? ""), placeholderImage: UIImage(named: "mediaBerkas"))
-        
+        cell.configure()
         cell.mediaImage.contentMode = .scaleAspectFill
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = self.viewModel?.machineDatalist[indexPath.section].urlPaths[indexPath.row]
         if !multipleSelect {
-            let data = self.viewModel?.machineDatalist[indexPath.section].urlPaths[indexPath.row]
+            
             DispatchQueue.main.async {
                 let destVc                      = MainHelper.instantiateVC(UIStoryboard(name: "Main", bundle: nil), "ImageFullScreenVC") as! ImageFullScreenVC
                 destVc.modalPresentationStyle = .overFullScreen
                 destVc.url = data
                 self.present(destVc, animated: false, completion: nil)
             }
+        } else {
+            guard let item = collectionView.indexPathsForSelectedItems else {
+                return
+            }
+            self.selectedItems = item
         }
     }
     
@@ -259,25 +279,22 @@ extension MachineDataDetailViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
-
-extension PHAsset {
-    
-    var thumbnailImage : UIImage {
-        get {
-            let manager = PHImageManager.default()
-            let option = PHImageRequestOptions()
-            var thumbnail = UIImage()
-            option.isSynchronous = true
-            manager.requestImage(for: self, targetSize: CGSize(width: 300, height: 300), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-                thumbnail = result!
-            })
-            return thumbnail
-        }
-    }
-}
-
 class MediaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mediaImage: UIImageView!
+    @IBOutlet weak var viewScreen: UIView!
+    
+    func configure() {
+        self.viewScreen.isHidden = true
+    }
+    override var isSelected: Bool {
+            didSet {
+                if self.isSelected {
+                    self.viewScreen.isHidden = false
+                }
+                else {
+                    self.viewScreen.isHidden = true
+                }
+            }
+        }
     
 }
