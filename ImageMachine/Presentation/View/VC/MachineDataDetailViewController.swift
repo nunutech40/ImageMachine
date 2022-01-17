@@ -169,6 +169,9 @@ extension MachineDataDetailViewController {
         alert.addTextField { (textInput) in
             textInput.text = ""
             textInput.placeholder = placeholder
+            if statusEdit == "qrcode" {
+                textInput.keyboardType = .numberPad
+            }
         }
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
