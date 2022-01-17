@@ -181,6 +181,7 @@ extension MachineDataDetailViewController {
             machineDataModel.machineType = self.viewModel?.machineDatalist[0].machineType
             machineDataModel.machineQRCode = self.viewModel?.machineDatalist[0].machineQRCode
             machineDataModel.updateAt = datePick
+            machineDataModel.urlPaths = self.viewModel?.machineDatalist[0].urlPaths ?? []
             self.viewModel?.updateDataById(id: "\(self.machineId ?? 0)", machineData: machineDataModel, self)
         }
         
@@ -210,6 +211,7 @@ extension MachineDataDetailViewController {
             machineDataModel.machineType = self.viewModel?.machineDatalist[0].machineType
             machineDataModel.machineQRCode = self.viewModel?.machineDatalist[0].machineQRCode
             machineDataModel.updateAt = self.viewModel?.machineDatalist[0].updateAt ?? ""
+            machineDataModel.urlPaths = self.viewModel?.machineDatalist[0].urlPaths ?? []
             if let strText = textFieldName.text {
                 switch statusEdit {
                 case "name":
