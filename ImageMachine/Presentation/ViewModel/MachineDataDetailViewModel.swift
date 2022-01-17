@@ -29,6 +29,7 @@ class MachineDataDetailViewModel {
                         return
                     }
                     self.setupData(vc, data: self.machineDatalist[0])
+                    vc.collectionView.reloadData()
                 }
             )
             .disposed(by: disposeBag)

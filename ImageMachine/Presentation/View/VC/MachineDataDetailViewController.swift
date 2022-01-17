@@ -31,12 +31,12 @@ class MachineDataDetailViewController: UIViewController {
     var viewModel: MachineDataDetailViewModel?
     var selectedAssets = [TLPHAsset]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupInjection()
         self.setupNavBar()
         self.setupData()
+        self.setupCollectionView()
         self.setupTap()
     }
     
@@ -54,6 +54,12 @@ class MachineDataDetailViewController: UIViewController {
     
     func setupData() {
         self.viewModel?.getMcahineDataById(id: "\(self.machineId ?? 0)", self)
+    }
+    
+    func setupCollectionView() {
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.reloadData()
     }
     
     func setupTap() {
@@ -168,11 +174,8 @@ extension MachineDataDetailViewController: TLPhotosPickerViewControllerDelegate 
                 }
             }
         }
-        
-        let dataCek = self.viewModel?.machineDatalist.filter {
-            $0.machineId == self.machineId ?? 0
-        }
-        
+        self.setupData()
+        self.collectionView.reloadData()
         return true
     }
     
@@ -198,6 +201,55 @@ extension MachineDataDetailViewController: TLPhotosPickerViewControllerDelegate 
         return nil
     }
 }
+
+extension MachineDataDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.viewModel?.machineDatalist[section].urlPaths.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MediaCollectionViewCell", for: indexPath) as! MediaCollectionViewCell
+        let data = self.viewModel?.machineDatalist[indexPath.section].urlPaths[indexPath.row]
+        cell.mediaImage.sd_setImage(with: URL(string: data ?? ""), placeholderImage: UIImage(named: "mediaBerkas"))
+        
+        cell.mediaImage.contentMode = .scaleAspectFill
+        return cell
+    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let comment = self.viewModel.comments[indexPath.section][indexPath.row]
+//        let caption = comment.payload?["file_name"] as? String
+//        if let urll = comment.payload?["url"] as? String {
+//            let destVc                      = MainHelper.instantiateVC(.chatQiscus, "ImageViewFullScreenViewController") as! ImageViewFullScreenViewController
+//            destVc.modalPresentationStyle   = UIModalPresentationStyle.overCurrentContext
+//            destVc.modalTransitionStyle     = UIModalTransitionStyle.crossDissolve
+//            destVc.url                      =  urll
+//            destVc.filename                 = caption
+//            destVc.dateString               = comment.date
+//            destVc.userName                 = comment.username
+//            self.showDetailViewController(destVc, sender: self)
+//        }
+//    }
+    
+}
+
+extension MachineDataDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        flowLayout.minimumLineSpacing = 3
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionInset.right = 3
+        flowLayout.sectionInset.left  = 3
+        let totalspace = flowLayout.sectionInset.right + flowLayout.sectionInset.left
+            + (flowLayout.minimumLineSpacing * CGFloat(1))
+        let size = Int((collectionView.frame.size.width - totalspace)/4)
+        let height =  Double(size)
+        return CGSize(width: size, height: Int(height))
+    }
+}
+
 
 
 extension PHAsset {
