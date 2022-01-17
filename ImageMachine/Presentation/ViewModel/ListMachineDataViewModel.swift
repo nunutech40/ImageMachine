@@ -50,6 +50,25 @@ class ListMachineDataViewModel {
             .disposed(by: disposeBag)
     }
     
+    func getMcahineDataByQrCode(qrCode: String, _ vc: ListMachineDataViewController, completion: @escaping (Bool) -> Void) {
+        self.repository.getMachineDataByQrCode(qrcode: qrCode)
+            .asObservable()
+            .subscribe(
+                onNext: { value in
+                    self.machineDatalist = value
+                    guard (self.machineDatalist.count > 0) else {
+                        completion(true)
+                        return
+                    }
+                    completion(false)
+                },
+                onError: {_ in
+                    completion(false)
+                }
+            )
+            .disposed(by: disposeBag)
+        
+    }
     
     
 }

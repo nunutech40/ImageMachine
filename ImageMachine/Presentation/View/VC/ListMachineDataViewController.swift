@@ -120,22 +120,35 @@ extension ListMachineDataViewController {
             var machineDataModel = MachineDataModel()
             machineDataModel.machineId = MachinDataEntity().IncrementaID()
             
-            if let strName = textFieldName.text {
-                machineDataModel.machineName = strName
-            }
-            
-            if let strType = textFieldType.text {
-                machineDataModel.machineType = strType
-            }
-            
             if let strQRCode = textQrCode.text {
-                machineDataModel.machineQRCode = strQRCode
-            }
+                self.viewModel?.getMcahineDataByQrCode(qrCode: strQRCode, self, completion: { isTrue in
+                    if !isTrue {
+                        let alert = UIAlertController(title: "Delete", message: "QR Code already in database or you not input QRCode, please insert another qrcode?", preferredStyle: UIAlertController.Style.alert)
+
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+                        self.present(alert, animated: true, completion: nil)
+                    } else {
+                        
+                        machineDataModel.machineQRCode = strQRCode
+                        
+                        if let strName = textFieldName.text {
+                            machineDataModel.machineName = strName
+                        }
+                        
+                        if let strType = textFieldType.text {
+                            machineDataModel.machineType = strType
+                        }
+                        
+                        self.viewModel?.addOnceData(machineData: machineDataModel, tableView: self.tableView)
+                    }
+                })
+                
+            } 
             
-            self.viewModel?.addOnceData(machineData: machineDataModel, tableView: self.tableView)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
-            print("Nothing");
+            print("cek nothing")
         }
         
         alert.addAction(OKAction)
