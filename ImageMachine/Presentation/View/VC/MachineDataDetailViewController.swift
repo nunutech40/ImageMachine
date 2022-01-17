@@ -29,6 +29,7 @@ class MachineDataDetailViewController: UIViewController {
     private var disposeBag = DisposeBag()
     var viewModel: MachineDataDetailViewModel?
     var selectedAssets = [TLPHAsset]()
+    var multipleSelect = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,17 @@ class MachineDataDetailViewController: UIViewController {
         
         let itemRight = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(rightTapNavBar))
         self.navigationItem.setRightBarButton(itemRight, animated: true)
+    }
+    
+    func setupRightIcon(isMultipleSelect: Bool) {
+        self.multipleSelect = isMultipleSelect
+        if multipleSelect {
+            let itemRight = UIBarButtonItem(title: "Done Edit", style: .plain, target: self, action: #selector(rightTapNavBar))
+            self.navigationItem.setRightBarButton(itemRight, animated: true)
+        } else {
+            let itemRight = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(rightTapNavBar))
+            self.navigationItem.setRightBarButton(itemRight, animated: true)
+        }
     }
     
     func setupData() {
@@ -85,7 +97,8 @@ class MachineDataDetailViewController: UIViewController {
 extension MachineDataDetailViewController {
     
     @objc func rightTapNavBar(_ gestureTap: UITapGestureRecognizer) {
-        print("cekkk right")
+        self.setupRightIcon(isMultipleSelect: !multipleSelect)
+        collectionView.allowsMultipleSelection = self.multipleSelect
     }
     
     @objc func tapEditNama(_ gesture: UITapGestureRecognizer) {
@@ -217,12 +230,14 @@ extension MachineDataDetailViewController: UICollectionViewDelegate, UICollectio
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data = self.viewModel?.machineDatalist[indexPath.section].urlPaths[indexPath.row]
-        DispatchQueue.main.async {
-            let destVc                      = MainHelper.instantiateVC(UIStoryboard(name: "Main", bundle: nil), "ImageFullScreenVC") as! ImageFullScreenVC
-            destVc.modalPresentationStyle = .overFullScreen
-            destVc.url = data
-            self.present(destVc, animated: false, completion: nil)
+        if !multipleSelect {
+            let data = self.viewModel?.machineDatalist[indexPath.section].urlPaths[indexPath.row]
+            DispatchQueue.main.async {
+                let destVc                      = MainHelper.instantiateVC(UIStoryboard(name: "Main", bundle: nil), "ImageFullScreenVC") as! ImageFullScreenVC
+                destVc.modalPresentationStyle = .overFullScreen
+                destVc.url = data
+                self.present(destVc, animated: false, completion: nil)
+            }
         }
     }
     
