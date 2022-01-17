@@ -10,7 +10,8 @@ target 'ImageMachine' do
     #reactive
     pod 'RxSwift', '~> 5'
     pod 'RxCocoa', '~> 5'
-    pod 'RxDataSources', '~> 4.0'
+
+    #other
     pod "TLPhotoPicker"
     pod 'SDWebImage', '~> 5.0'
     pod 'MercariQRScanner'

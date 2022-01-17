@@ -1,5 +1,4 @@
 PODS:
-  - Differentiator (4.0.1)
   - MercariQRScanner (1.9.0)
   - Realm (5.5.1):
     - Realm/Headers (= 5.5.1)
@@ -9,10 +8,6 @@ PODS:
   - RxCocoa (5.1.3):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
   - RxRelay (5.1.3):
     - RxSwift (~> 5)
   - RxSwift (5.1.3)
@@ -25,36 +20,31 @@ DEPENDENCIES:
   - MercariQRScanner
   - RealmSwift (~> 5)
   - RxCocoa (~> 5)
-  - RxDataSources (~> 4.0)
   - RxSwift (~> 5)
   - SDWebImage (~> 5.0)
   - TLPhotoPicker
 
 SPEC REPOS:
   trunk:
-    - Differentiator
     - MercariQRScanner
     - Realm
     - RealmSwift
     - RxCocoa
-    - RxDataSources
     - RxRelay
     - RxSwift
     - SDWebImage
     - TLPhotoPicker
 
 SPEC CHECKSUMS:
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   MercariQRScanner: e5aea873969af59b09b4cc411fc1c5b6293dba44
   Realm: c2ffe0667f9c98c9ba65f608ba85684d39826145
   RealmSwift: 5a35c1c35c3e1925e6fcd092c881d5cc4a826bff
   RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
   SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   TLPhotoPicker: 939c40eaad130b69f9571e61e021e8120fa76329
 
-PODFILE CHECKSUM: 4b0bde4181bfc81d8733748e100d3435c6f5cf7d
+PODFILE CHECKSUM: 0599c347ebc3ebe81f001dab73b1383dc210bca0
 
 COCOAPODS: 1.11.2
