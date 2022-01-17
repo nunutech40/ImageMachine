@@ -135,6 +135,7 @@ class MachineDataDetailViewController: UIViewController {
             newMachineData.machineName = self.viewModel?.machineDatalist[0].machineName
             newMachineData.machineType = self.viewModel?.machineDatalist[0].machineType
             newMachineData.machineQRCode = self.viewModel?.machineDatalist[0].machineQRCode
+            newMachineData.updateAt = self.viewModel?.machineDatalist[0].updateAt ?? ""
             newMachineData.urlPaths = fullAray ?? []
             
             let alert = UIAlertController(title: "Delete", message: "Delete?", preferredStyle: UIAlertController.Style.alert)
