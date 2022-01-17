@@ -15,6 +15,7 @@
 		043071042792696D00CABD8E /* MachineDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043071022792696D00CABD8E /* MachineDataCell.swift */; };
 		043071052792696D00CABD8E /* MachineDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043071032792696D00CABD8E /* MachineDataCell.xib */; };
 		04339E6027956D8E00C3DD91 /* ProtocolMachineImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04339E5F27956D8E00C3DD91 /* ProtocolMachineImage.swift */; };
+		04339E622795802800C3DD91 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04339E612795802800C3DD91 /* DateHelper.swift */; };
 		0463429E2792BE2000044CE5 /* MainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463429D2792BE2000044CE5 /* MainHelper.swift */; };
 		0477A87A2794337300222899 /* Rounded+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0477A8792794337300222899 /* Rounded+Ext.swift */; };
 		0479E2242793B59900114FF6 /* Rx+ViewDidload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479E2232793B59900114FF6 /* Rx+ViewDidload.swift */; };
@@ -46,6 +47,7 @@
 		043071022792696D00CABD8E /* MachineDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataCell.swift; sourceTree = "<group>"; };
 		043071032792696D00CABD8E /* MachineDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MachineDataCell.xib; sourceTree = "<group>"; };
 		04339E5F27956D8E00C3DD91 /* ProtocolMachineImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolMachineImage.swift; sourceTree = "<group>"; };
+		04339E612795802800C3DD91 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		0463429D2792BE2000044CE5 /* MainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHelper.swift; sourceTree = "<group>"; };
 		0477A8792794337300222899 /* Rounded+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rounded+Ext.swift"; sourceTree = "<group>"; };
 		0479E2232793B59900114FF6 /* Rx+ViewDidload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+ViewDidload.swift"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				0463429D2792BE2000044CE5 /* MainHelper.swift */,
+				04339E612795802800C3DD91 /* DateHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				04339E6027956D8E00C3DD91 /* ProtocolMachineImage.swift in Sources */,
 				043070E72792647D00CABD8E /* AppDelegate.swift in Sources */,
 				047A20B22792DFEB0091A002 /* MachineData.swift in Sources */,
+				04339E622795802800C3DD91 /* DateHelper.swift in Sources */,
 				0477A87A2794337300222899 /* Rounded+Ext.swift in Sources */,
 				047A20B02792DF800091A002 /* ListMachineDataViewModel.swift in Sources */,
 				048C75BA27938C6A00C7BF23 /* Injection.swift in Sources */,

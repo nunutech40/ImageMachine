@@ -24,6 +24,7 @@ class MachineDataDetailViewController: UIViewController {
     @IBOutlet weak var editQRCodeIcon: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var btnImage: UIButton!
+    @IBOutlet weak var updateMaintenanceTxt: UITextField!
     
     // VARIABLE HERE
     var machineId: Int?
@@ -40,6 +41,7 @@ class MachineDataDetailViewController: UIViewController {
         self.setupNavBar()
         self.setupData()
         self.setupCollectionView()
+        self.setupView()
         self.setupTap()
     }
     
@@ -64,6 +66,7 @@ class MachineDataDetailViewController: UIViewController {
             let itemRight = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(rightTapNavBar))
             self.navigationItem.setRightBarButton(itemRight, animated: true)
         }
+        
     }
     
     func setupData() {
@@ -76,10 +79,18 @@ class MachineDataDetailViewController: UIViewController {
         self.collectionView.reloadData()
     }
     
+    func setupView() {
+        // setup right icon in textinput date mainetenance
+        updateMaintenanceTxt.rightViewMode = .always
+        let iconCalender = UIImage(named: "calender")
+        updateMaintenanceTxt.rightView = UIImageView(image: iconCalender)
+    }
+    
     func setupTap() {
         MainHelper.onTap(self, editNamaIcon, #selector(tapEditNama(_:)))
         MainHelper.onTap(self, editTypeIcon, #selector(tapEditType(_:)))
         MainHelper.onTap(self, editQRCodeIcon, #selector(tapEditQRCode(_:)))
+        DateHelper.setInputView(self, self.updateMaintenanceTxt, #selector(handleDatePicker(senderUI:)))
     }
     
     @IBAction func chooseImageButton(_ sender: Any) {
@@ -159,6 +170,11 @@ extension MachineDataDetailViewController {
     @objc func tapEditQRCode(_ gesture: UITapGestureRecognizer) {
         self.inputTextAlert(message: "Edit Your QRCode Machine Data", placeholder: "Input New QRCode Number", statusEdit: "qrcode")
     }
+    
+    @objc func handleDatePicker(senderUI: UIDatePicker) {
+        self.updateMaintenanceTxt.text                = DateHelper.localFormatter("dd/MM/yyyy").string(from: senderUI.date)
+    }
+    
     
     func inputTextAlert(
         message: String,

@@ -70,6 +70,7 @@ class MachineDataDetailViewModel {
         vc.machineDataName.text = data.machineName
         vc.machineDataType.text = data.machineType
         vc.machineDataQRCode.text = data.machineQRCode
+        vc.updateMaintenanceTxt.text = data.updateAt
     }
     
 }

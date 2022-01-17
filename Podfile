@@ -15,6 +15,7 @@ target 'ImageMachine' do
     pod "TLPhotoPicker"
     pod 'SDWebImage', '~> 5.0'
     pod 'MercariQRScanner'
+    pod 'IQKeyboardManagerSwift'
     
     #localstorage
     pod 'RealmSwift', '~> 5'
