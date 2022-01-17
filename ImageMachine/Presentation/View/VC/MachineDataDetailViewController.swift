@@ -215,3 +215,8 @@ extension PHAsset {
         }
     }
 }
+
+class MediaCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var mediaImage: UIImageView!
+    
+}

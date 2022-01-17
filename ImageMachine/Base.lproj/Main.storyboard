@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -155,23 +154,37 @@
                                     <action selector="chooseImageButton:" destination="7Fe-Sc-IOJ" eventType="touchUpInside" id="CgL-r5-bib"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ufi-4E-ptt">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ckb-lS-1ic">
                                 <rect key="frame" x="0.0" y="260.5" width="414" height="585.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HkK-uN-t80">
+                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yDD-Md-w7E">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NLG-iT-GgN">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MediaCollectionViewCell" id="XSU-jw-Fcx" customClass="MediaCollectionViewCell" customModule="Komerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1VN-Mi-Kg5">
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cih-DJ-6hI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Cih-DJ-6hI" firstAttribute="leading" secondItem="XSU-jw-Fcx" secondAttribute="leading" id="Ev6-hQ-wNq"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cih-DJ-6hI" secondAttribute="trailing" id="JwV-gG-mlE"/>
+                                            <constraint firstAttribute="bottom" secondItem="Cih-DJ-6hI" secondAttribute="bottom" id="fK8-4h-Z8O"/>
+                                            <constraint firstItem="Cih-DJ-6hI" firstAttribute="top" secondItem="XSU-jw-Fcx" secondAttribute="top" id="t4S-Rd-EGj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mediaImage" destination="Cih-DJ-6hI" id="XIh-Sh-Z9W"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -179,20 +192,20 @@
                         <viewLayoutGuide key="safeArea" id="obJ-Ho-c5s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="obJ-Ho-c5s" firstAttribute="bottom" secondItem="Ckb-lS-1ic" secondAttribute="bottom" constant="16" id="2bC-En-gib"/>
                             <constraint firstItem="5Us-JB-Uz4" firstAttribute="top" secondItem="Mgo-aG-YlZ" secondAttribute="bottom" constant="8" id="3GW-9O-1Dz"/>
                             <constraint firstItem="Mgo-aG-YlZ" firstAttribute="top" secondItem="obJ-Ho-c5s" secondAttribute="top" constant="24" id="5iv-Wq-gaa"/>
                             <constraint firstItem="Mgo-aG-YlZ" firstAttribute="leading" secondItem="obJ-Ho-c5s" secondAttribute="leading" constant="16" id="ACT-6P-CvO"/>
-                            <constraint firstItem="obJ-Ho-c5s" firstAttribute="trailing" secondItem="ufi-4E-ptt" secondAttribute="trailing" id="OfP-25-ca8"/>
-                            <constraint firstItem="ufi-4E-ptt" firstAttribute="leading" secondItem="obJ-Ho-c5s" secondAttribute="leading" id="PLB-FV-urq"/>
-                            <constraint firstItem="obJ-Ho-c5s" firstAttribute="bottom" secondItem="ufi-4E-ptt" secondAttribute="bottom" constant="16" id="ZRg-jw-ygu"/>
-                            <constraint firstItem="ufi-4E-ptt" firstAttribute="top" secondItem="5Us-JB-Uz4" secondAttribute="bottom" constant="16" id="ezf-AU-HQD"/>
+                            <constraint firstItem="obJ-Ho-c5s" firstAttribute="trailing" secondItem="Ckb-lS-1ic" secondAttribute="trailing" id="ONo-rm-47j"/>
+                            <constraint firstItem="Ckb-lS-1ic" firstAttribute="leading" secondItem="obJ-Ho-c5s" secondAttribute="leading" id="Pzh-nD-WFU"/>
+                            <constraint firstItem="Ckb-lS-1ic" firstAttribute="top" secondItem="5Us-JB-Uz4" secondAttribute="bottom" constant="16" id="T9E-og-tn1"/>
                             <constraint firstItem="5Us-JB-Uz4" firstAttribute="leading" secondItem="obJ-Ho-c5s" secondAttribute="leading" constant="24" id="q9A-L0-q59"/>
                             <constraint firstItem="Mgo-aG-YlZ" firstAttribute="centerX" secondItem="zd8-u4-yVV" secondAttribute="centerX" id="uoW-9x-5KC"/>
                             <constraint firstItem="5Us-JB-Uz4" firstAttribute="centerX" secondItem="zd8-u4-yVV" secondAttribute="centerX" id="xbJ-es-Of3"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="ufi-4E-ptt" id="elr-xt-g3x"/>
+                        <outlet property="collectionView" destination="Ckb-lS-1ic" id="did-Y2-FGq"/>
                         <outlet property="editNamaIcon" destination="9xb-lB-CPw" id="o0C-0i-brJ"/>
                         <outlet property="editQRCodeIcon" destination="EFn-s8-3pC" id="YBB-tX-epP"/>
                         <outlet property="editTypeIcon" destination="oYR-6H-zY5" id="xPF-yO-bNU"/>
