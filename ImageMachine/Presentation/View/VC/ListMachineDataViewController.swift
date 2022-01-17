@@ -17,6 +17,7 @@ class ListMachineDataViewController: UIViewController {
     
     var viewModel: ListMachineDataViewModel?
     private var disposeBag = DisposeBag()
+    var isSortType: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +69,21 @@ class ListMachineDataViewController: UIViewController {
 extension ListMachineDataViewController {
     
     @objc func leftTapNavBar(_ gestureTap: UITapGestureRecognizer) {
-       print("cekkk left")
+        self.isSortType = !isSortType
+        
+        if isSortType {
+            let sortedObjects = self.viewModel?.machineDatalist.sorted { (l, r) in
+                l.machineType ?? "" < r.machineType ?? ""
+            }
+            self.viewModel?.machineDatalist = sortedObjects ?? []
+        } else {
+            let sortedObjects = self.viewModel?.machineDatalist.sorted { (l, r) in
+                l.machineName ?? "" < r.machineName ?? ""
+            }
+            self.viewModel?.machineDatalist = sortedObjects ?? []
+        }
+        
+        self.tableView.reloadData()
     }
     
     @objc func rightTapNavBar(_ gestureTap: UITapGestureRecognizer) {
