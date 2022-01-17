@@ -94,6 +94,7 @@ extension ListMachineDataViewController {
         alert.addTextField { (qrcodeText) in
             qrcodeText.text = ""
             qrcodeText.placeholder = "Enter Type Name"
+            qrcodeText.keyboardType = .numberPad
         }
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
@@ -101,12 +102,14 @@ extension ListMachineDataViewController {
             let textFieldType = alert.textFields![1]
             let textQrCode = alert.textFields![2]
             //print("cek type \(textFieldName.text) & \(textFieldType.text)")
-     
+
             var machineDataModel = MachineDataModel()
             machineDataModel.machineId = MachinDataEntity().IncrementaID()
+            
             if let strName = textFieldName.text {
                 machineDataModel.machineName = strName
             }
+            
             if let strType = textFieldType.text {
                 machineDataModel.machineType = strType
             }
@@ -114,6 +117,7 @@ extension ListMachineDataViewController {
             if let strQRCode = textQrCode.text {
                 machineDataModel.machineQRCode = strQRCode
             }
+            
             self.viewModel?.addOnceData(machineData: machineDataModel, tableView: self.tableView)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
@@ -124,6 +128,14 @@ extension ListMachineDataViewController {
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setupAlert(message: String ){
+        let alert = UIAlertController(title: "Input Data", message: message, preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }
