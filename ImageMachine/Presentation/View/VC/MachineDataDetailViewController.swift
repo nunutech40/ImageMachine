@@ -96,6 +96,11 @@ class MachineDataDetailViewController: UIViewController {
     }
     
     @IBAction func deleteImageButton(_ sender: Any) {
+        
+        let objc = self.viewModel?.machineDatalist.filter {
+            $0.machineId == self.machineId ?? 0
+        }
+        
         if selectedItems.count < 1 {
             let alert = UIAlertController(title: "Info Delete", message: "Please select image for deleted", preferredStyle: UIAlertController.Style.alert)
 
@@ -103,14 +108,35 @@ class MachineDataDetailViewController: UIViewController {
             
             present(alert, animated: true, completion: nil)
         } else {
-            let objc = self.viewModel?.machineDatalist.filter {
-                $0.machineId == self.machineId ?? 0
-            }
+            
+            // get full array image
+            var fullAray = objc?[0].urlPaths.map { $0 }
+            
+            // get data deleted image
             let deletedData = self.selectedItems.map {
                 objc?[0].urlPaths[$0.row]
             }
-            print("cek datafordeleted: \(deletedData)")
+            // get result fullaray after deleted
+            fullAray = fullAray?.filter { !deletedData.contains($0) }
             
+            var newMachineData = MachineDataModel()
+            newMachineData.machineId = self.machineId ?? 0
+            newMachineData.machineName = self.viewModel?.machineDatalist[0].machineName
+            newMachineData.machineType = self.viewModel?.machineDatalist[0].machineType
+            newMachineData.machineQRCode = self.viewModel?.machineDatalist[0].machineQRCode
+            newMachineData.urlPaths = fullAray ?? []
+            
+            let alert = UIAlertController(title: "Delete", message: "Delete?", preferredStyle: UIAlertController.Style.alert)
+
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                self.viewModel?.updateDataById(id: "\(self.machineId ?? 0)", machineData: newMachineData, self)
+                self.selectedItems.removeAll()
+            }))
+
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+            present(alert, animated: true, completion: nil)
+           
         }
     }
 }
