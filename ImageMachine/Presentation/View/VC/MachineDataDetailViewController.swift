@@ -10,7 +10,6 @@ import RxSwift
 import RxCocoa
 import TLPhotoPicker
 import Photos
-import CoreLocation
 import SDWebImage
 
 class MachineDataDetailViewController: UIViewController {
@@ -216,21 +215,16 @@ extension MachineDataDetailViewController: UICollectionViewDelegate, UICollectio
         cell.mediaImage.contentMode = .scaleAspectFill
         return cell
     }
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let comment = self.viewModel.comments[indexPath.section][indexPath.row]
-//        let caption = comment.payload?["file_name"] as? String
-//        if let urll = comment.payload?["url"] as? String {
-//            let destVc                      = MainHelper.instantiateVC(.chatQiscus, "ImageViewFullScreenViewController") as! ImageViewFullScreenViewController
-//            destVc.modalPresentationStyle   = UIModalPresentationStyle.overCurrentContext
-//            destVc.modalTransitionStyle     = UIModalTransitionStyle.crossDissolve
-//            destVc.url                      =  urll
-//            destVc.filename                 = caption
-//            destVc.dateString               = comment.date
-//            destVc.userName                 = comment.username
-//            self.showDetailViewController(destVc, sender: self)
-//        }
-//    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let data = self.viewModel?.machineDatalist[indexPath.section].urlPaths[indexPath.row]
+        DispatchQueue.main.async {
+            let destVc                      = MainHelper.instantiateVC(UIStoryboard(name: "Main", bundle: nil), "ImageFullScreenVC") as! ImageFullScreenVC
+            destVc.modalPresentationStyle = .overFullScreen
+            destVc.url = data
+            self.present(destVc, animated: false, completion: nil)
+        }
+    }
     
 }
 

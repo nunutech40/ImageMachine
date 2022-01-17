@@ -27,6 +27,7 @@
 		047C5FE8279456FA0012D85A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5FE7279456FA0012D85A /* SceneDelegate.swift */; };
 		0487D31A2792F6CA00099048 /* CustomErr+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D3192792F6CA00099048 /* CustomErr+Ext.swift */; };
 		0487D31C2792F88900099048 /* MachineDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0487D31B2792F88900099048 /* MachineDataRepository.swift */; };
+		04890E432795137900B64B4F /* ImageFullScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04890E422795137900B64B4F /* ImageFullScreenVC.swift */; };
 		048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C75B62793828700C7BF23 /* MachineDataMapper.swift */; };
 		048C75BA27938C6A00C7BF23 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C75B927938C6A00C7BF23 /* Injection.swift */; };
 		A19875ECE9594ABCB87AF702 /* Pods_ImageMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6700E878E394AF93A296B7EC /* Pods_ImageMachine.framework */; };
@@ -55,6 +56,7 @@
 		047C5FE7279456FA0012D85A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0487D3192792F6CA00099048 /* CustomErr+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomErr+Ext.swift"; sourceTree = "<group>"; };
 		0487D31B2792F88900099048 /* MachineDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataRepository.swift; sourceTree = "<group>"; };
+		04890E422795137900B64B4F /* ImageFullScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFullScreenVC.swift; sourceTree = "<group>"; };
 		048C75B62793828700C7BF23 /* MachineDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineDataMapper.swift; sourceTree = "<group>"; };
 		048C75B927938C6A00C7BF23 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		34AEABD3BFBF857632FD2FA2 /* Pods-ImageMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageMachine.release.xcconfig"; path = "Target Support Files/Pods-ImageMachine/Pods-ImageMachine.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				043071022792696D00CABD8E /* MachineDataCell.swift */,
 				043071032792696D00CABD8E /* MachineDataCell.xib */,
+				04890E422795137900B64B4F /* ImageFullScreenVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				048C75B72793828700C7BF23 /* MachineDataMapper.swift in Sources */,
 				0479E2242793B59900114FF6 /* Rx+ViewDidload.swift in Sources */,
 				043071042792696D00CABD8E /* MachineDataCell.swift in Sources */,
+				04890E432795137900B64B4F /* ImageFullScreenVC.swift in Sources */,
 				047A20AE2792DF180091A002 /* MachineDataDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

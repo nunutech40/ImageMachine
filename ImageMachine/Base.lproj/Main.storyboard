@@ -164,7 +164,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MediaCollectionViewCell" id="XSU-jw-Fcx" customClass="MediaCollectionViewCell" customModule="Komerce" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MediaCollectionViewCell" id="XSU-jw-Fcx" customClass="MediaCollectionViewCell" customModule="ImageMachine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -252,8 +252,74 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="82.366071428571431"/>
         </scene>
+        <!--Image Full ScreenVC-->
+        <scene sceneID="jWE-Ys-vlO">
+            <objects>
+                <viewController storyboardIdentifier="ImageFullScreenVC" id="fCj-er-x1v" customClass="ImageFullScreenVC" customModule="ImageMachine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sqw-OF-41D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GcV-y0-gWA">
+                                <rect key="frame" x="0.0" y="124" width="414" height="738"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C47-oe-kiC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZoB-34-akG">
+                                        <rect key="frame" x="0.0" y="15" width="50" height="50"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="close" translatesAutoresizingMaskIntoConstraints="NO" id="VmG-Q5-wSd">
+                                                <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="ZRQ-87-fLe"/>
+                                                    <constraint firstAttribute="height" constant="20" id="vkk-rn-XNg"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.015164568959999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="VmG-Q5-wSd" firstAttribute="centerX" secondItem="ZoB-34-akG" secondAttribute="centerX" id="4G2-G2-bVW"/>
+                                            <constraint firstItem="VmG-Q5-wSd" firstAttribute="centerY" secondItem="ZoB-34-akG" secondAttribute="centerY" id="IZV-KK-Zsf"/>
+                                            <constraint firstAttribute="width" constant="50" id="oIF-1r-PuZ"/>
+                                            <constraint firstAttribute="height" constant="50" id="ock-U7-BmJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.91028448445907495" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ZoB-34-akG" firstAttribute="leading" secondItem="C47-oe-kiC" secondAttribute="leading" id="74d-aN-Bu7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="bGa-vD-ojJ"/>
+                                    <constraint firstItem="ZoB-34-akG" firstAttribute="centerY" secondItem="C47-oe-kiC" secondAttribute="centerY" id="sTt-nW-Rfu"/>
+                                    <constraint firstAttribute="height" constant="80" id="tQa-c7-cVD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gdI-qN-HmQ"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="C47-oe-kiC" firstAttribute="leading" secondItem="gdI-qN-HmQ" secondAttribute="leading" id="CTF-dC-vKF"/>
+                            <constraint firstItem="GcV-y0-gWA" firstAttribute="trailing" secondItem="gdI-qN-HmQ" secondAttribute="trailing" id="IPz-ww-Bkx"/>
+                            <constraint firstItem="C47-oe-kiC" firstAttribute="top" secondItem="gdI-qN-HmQ" secondAttribute="top" id="NzL-Md-t2b"/>
+                            <constraint firstItem="GcV-y0-gWA" firstAttribute="top" secondItem="C47-oe-kiC" secondAttribute="bottom" id="RLm-SE-fUh"/>
+                            <constraint firstItem="C47-oe-kiC" firstAttribute="trailing" secondItem="gdI-qN-HmQ" secondAttribute="trailing" id="hDj-gS-GkZ"/>
+                            <constraint firstItem="gdI-qN-HmQ" firstAttribute="bottom" secondItem="GcV-y0-gWA" secondAttribute="bottom" id="o3r-vd-auh"/>
+                            <constraint firstItem="GcV-y0-gWA" firstAttribute="leading" secondItem="gdI-qN-HmQ" secondAttribute="leading" id="pfk-5N-a72"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backImage" destination="VmG-Q5-wSd" id="NCD-Br-na7"/>
+                        <outlet property="contenImage" destination="GcV-y0-gWA" id="OEh-uz-e9U"/>
+                        <outlet property="viewBack" destination="ZoB-34-akG" id="Yax-TO-Icr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="znG-kE-cYS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1199" y="822"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="close" width="512" height="512"/>
         <image name="editIcon" width="24" height="24"/>
         <image name="scanQRCode" width="80" height="80"/>
         <systemColor name="systemBackgroundColor">
