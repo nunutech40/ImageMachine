@@ -16,11 +16,13 @@ final class MachineDataMapper {
                 machineType: result.type,
                 machineQRCode: result.qrCode,
                 createAt: result.createAt,
-                updateAt: result.updateAt)
+                updateAt: result.updateAt,
+                urlPaths: Array(result.urpPaths)
+            )
         }
         
     }
-    
+
     static func mapMachineDataModelToEntity(input machineData: MachineDataModel) -> MachinDataEntity {
         let newMachineData = MachinDataEntity()
         newMachineData.id = machineData.machineId!
@@ -29,6 +31,9 @@ final class MachineDataMapper {
         newMachineData.qrCode = machineData.machineQRCode ?? ""
         newMachineData.createAt = machineData.createAt ?? ""
         newMachineData.updateAt = machineData.updateAt ?? ""
+        machineData.urlPaths.forEach {
+            newMachineData.urpPaths.append($0)
+        }
         return newMachineData
     }
     

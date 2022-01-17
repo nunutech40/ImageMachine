@@ -15,6 +15,7 @@ class MachinDataEntity: Object {
     @objc dynamic var qrCode = ""
     @objc dynamic var createAt = ""
     @objc dynamic var updateAt = ""
+    let urpPaths = List<String>()
     
     override static func primaryKey() -> String {
         return "id"

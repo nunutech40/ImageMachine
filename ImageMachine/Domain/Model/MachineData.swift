@@ -14,6 +14,7 @@ struct MachineDataModel {
     var machineQRCode: String?
     var createAt: String?
     var updateAt: String?
+    var urlPaths: [String] = []
 }
 
 

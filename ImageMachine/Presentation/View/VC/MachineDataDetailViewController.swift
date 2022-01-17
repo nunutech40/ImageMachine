@@ -11,6 +11,7 @@ import RxCocoa
 import TLPhotoPicker
 import Photos
 import CoreLocation
+import SDWebImage
 
 class MachineDataDetailViewController: UIViewController {
     
@@ -22,13 +23,14 @@ class MachineDataDetailViewController: UIViewController {
     @IBOutlet weak var editNamaIcon: UIImageView!
     @IBOutlet weak var editTypeIcon: UIImageView!
     @IBOutlet weak var editQRCodeIcon: UIImageView!
-    @IBOutlet weak var testImage: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     // VARIABLE HERE
     var machineId: Int?
     private var disposeBag = DisposeBag()
     var viewModel: MachineDataDetailViewModel?
     var selectedAssets = [TLPHAsset]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,10 +149,30 @@ extension MachineDataDetailViewController: TLPhotosPickerViewControllerDelegate 
     func shouldDismissPhotoPicker(withTLPHAssets: [TLPHAsset]) -> Bool {
         // use selected order, fullresolution image
         self.selectedAssets = withTLPHAssets
-        //self.selectedAssets[0].fullResolutionImage
-        //self.testImage.image = self.selectedAssets[0].fullResolutionImage
-        let urlPath = MachineDataDetailViewController.saveImageInDocumentDirectory(image: self.selectedAssets[0].fullResolutionImage!, fileName: "testImage2")
-        self.testImage.image =  MachineDataDetailViewController.loadImageFromDocumentDirectory(fileName: "testImage2")
+        let convertToPHAsset: [PHAsset] = self.selectedAssets.map{ $0.phAsset! }
+        var urlPaths = [String]()
+        
+        var newMachineData = MachineDataModel()
+        newMachineData.machineId = self.machineId ?? 0
+        newMachineData.machineName = self.viewModel?.machineDatalist[0].machineName
+        newMachineData.machineType = self.viewModel?.machineDatalist[0].machineType
+        newMachineData.machineQRCode = self.viewModel?.machineDatalist[0].machineQRCode
+        for asset: PHAsset in convertToPHAsset {
+            asset.requestContentEditingInput(with: PHContentEditingInputRequestOptions()) { (eidtingInput, info) in
+                if let input = eidtingInput, let photoUrl = input.fullSizeImageURL {
+                    urlPaths.append(photoUrl.absoluteString)
+                    
+                    newMachineData.urlPaths = urlPaths
+                    self.viewModel?.updateDataById(id: "\(self.machineId ?? 0)", machineData: newMachineData, self)
+                   
+                }
+            }
+        }
+        
+        let dataCek = self.viewModel?.machineDatalist.filter {
+            $0.machineId == self.machineId ?? 0
+        }
+        
         return true
     }
     

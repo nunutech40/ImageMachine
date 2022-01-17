@@ -15,6 +15,9 @@ PODS:
   - RxRelay (5.1.3):
     - RxSwift (~> 5)
   - RxSwift (5.1.3)
+  - SDWebImage (5.12.1):
+    - SDWebImage/Core (= 5.12.1)
+  - SDWebImage/Core (5.12.1)
   - TLPhotoPicker (2.1.9)
 
 DEPENDENCIES:
@@ -22,6 +25,7 @@ DEPENDENCIES:
   - RxCocoa (~> 5)
   - RxDataSources (~> 4.0)
   - RxSwift (~> 5)
+  - SDWebImage (~> 5.0)
   - TLPhotoPicker
 
 SPEC REPOS:
@@ -33,6 +37,7 @@ SPEC REPOS:
     - RxDataSources
     - RxRelay
     - RxSwift
+    - SDWebImage
     - TLPhotoPicker
 
 SPEC CHECKSUMS:
@@ -43,8 +48,9 @@ SPEC CHECKSUMS:
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
+  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
   TLPhotoPicker: 939c40eaad130b69f9571e61e021e8120fa76329
 
-PODFILE CHECKSUM: bd04786ca925a4ee0e4916d0d3001fb533e70738
+PODFILE CHECKSUM: 00dad09535e1052e3812f023842a262155ce66a1
 
 COCOAPODS: 1.11.2

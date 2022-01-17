@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func migrationRealm() {
         let config = Realm.Configuration(
             
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { migration, oldSchemaVersion in
                 migration.enumerateObjects(ofType: MachinDataEntity.className()) { oldObject, newObject in
                     if (oldSchemaVersion < 2) {
-                        newObject!["primaryKeyProperty"] = "id"
+                        //
                     }
                 }
             }
