@@ -264,6 +264,7 @@ extension MachineDataDetailViewController: TLPhotosPickerViewControllerDelegate 
         newMachineData.machineName = self.viewModel?.machineDatalist[0].machineName
         newMachineData.machineType = self.viewModel?.machineDatalist[0].machineType
         newMachineData.machineQRCode = self.viewModel?.machineDatalist[0].machineQRCode
+        newMachineData.updateAt = self.viewModel?.machineDatalist[0].updateAt ?? ""
         for asset: PHAsset in convertToPHAsset {
             asset.requestContentEditingInput(with: PHContentEditingInputRequestOptions()) { (eidtingInput, info) in
                 if let input = eidtingInput, let photoUrl = input.fullSizeImageURL {
