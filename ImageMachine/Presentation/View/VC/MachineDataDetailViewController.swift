@@ -173,6 +173,17 @@ extension MachineDataDetailViewController {
     
     @objc func handleDatePicker(senderUI: UIDatePicker) {
         self.updateMaintenanceTxt.text                = DateHelper.localFormatter("dd/MM/yyyy").string(from: senderUI.date)
+        
+        if let datePick = self.updateMaintenanceTxt.text {
+            var machineDataModel = MachineDataModel()
+            machineDataModel.machineId = self.machineId ?? 0
+            machineDataModel.machineName = self.viewModel?.machineDatalist[0].machineName
+            machineDataModel.machineType = self.viewModel?.machineDatalist[0].machineType
+            machineDataModel.machineQRCode = self.viewModel?.machineDatalist[0].machineQRCode
+            machineDataModel.updateAt = datePick
+            self.viewModel?.updateDataById(id: "\(self.machineId ?? 0)", machineData: machineDataModel, self)
+        }
+        
     }
     
     
@@ -198,7 +209,7 @@ extension MachineDataDetailViewController {
             machineDataModel.machineName = self.viewModel?.machineDatalist[0].machineName
             machineDataModel.machineType = self.viewModel?.machineDatalist[0].machineType
             machineDataModel.machineQRCode = self.viewModel?.machineDatalist[0].machineQRCode
-            
+            machineDataModel.updateAt = self.viewModel?.machineDatalist[0].updateAt ?? ""
             if let strText = textFieldName.text {
                 switch statusEdit {
                 case "name":
