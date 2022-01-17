@@ -99,12 +99,17 @@ class MachineDataDetailViewController: UIViewController {
         if selectedItems.count < 1 {
             let alert = UIAlertController(title: "Info Delete", message: "Please select image for deleted", preferredStyle: UIAlertController.Style.alert)
 
-            alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: { (action: UIAlertAction!) in
-                 
-            }))
+            alert.addAction(UIAlertAction(title: "Oke", style: .default, handler: nil))
             
             present(alert, animated: true, completion: nil)
         } else {
+            let objc = self.viewModel?.machineDatalist.filter {
+                $0.machineId == self.machineId ?? 0
+            }
+            let deletedData = self.selectedItems.map {
+                objc?[0].urlPaths[$0.row]
+            }
+            print("cek datafordeleted: \(deletedData)")
             
         }
     }
