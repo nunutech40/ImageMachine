@@ -255,9 +255,24 @@
                     <view key="view" contentMode="scaleToFill" id="kzO-Rf-bz7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06j-ob-je7" customClass="QRScannerView" customModule="MercariQRScanner">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="fFt-1W-TgE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="06j-ob-je7" firstAttribute="top" secondItem="fFt-1W-TgE" secondAttribute="top" id="3aA-JX-d7f"/>
+                            <constraint firstItem="06j-ob-je7" firstAttribute="trailing" secondItem="fFt-1W-TgE" secondAttribute="trailing" id="DBb-V5-Wvg"/>
+                            <constraint firstItem="06j-ob-je7" firstAttribute="leading" secondItem="fFt-1W-TgE" secondAttribute="leading" id="boM-Ik-yoZ"/>
+                            <constraint firstAttribute="bottom" secondItem="06j-ob-je7" secondAttribute="bottom" id="lkL-oW-RT1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scanView" destination="06j-ob-je7" id="3vH-Rc-zVA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbl-HW-guc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

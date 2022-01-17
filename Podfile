@@ -13,6 +13,7 @@ target 'ImageMachine' do
     pod 'RxDataSources', '~> 4.0'
     pod "TLPhotoPicker"
     pod 'SDWebImage', '~> 5.0'
+    pod 'MercariQRScanner'
     
     #localstorage
     pod 'RealmSwift', '~> 5'

@@ -113,10 +113,9 @@ extension ListMachineDataViewController {
         }
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-            let textFieldName = alert.textFields![0] // Force unwrapping because we know it exists.
+            let textFieldName = alert.textFields![0]
             let textFieldType = alert.textFields![1]
             let textQrCode = alert.textFields![2]
-            //print("cek type \(textFieldName.text) & \(textFieldType.text)")
 
             var machineDataModel = MachineDataModel()
             machineDataModel.machineId = MachinDataEntity().IncrementaID()
